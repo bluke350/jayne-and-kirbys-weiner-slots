@@ -40,6 +40,9 @@ home-screen app. For that, use an HTTPS host below.
 
 ## Put it on the web (free)
 
+Live copy, served by GitHub Pages:
+<https://bluke350.github.io/jayne-and-kirbys-weiner-slots/>
+
 The folder is already a finished static site. No build command is needed.
 
 ### Easiest: Netlify Drop
