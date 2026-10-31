@@ -2,13 +2,13 @@
 
 A self-contained three-reel wiener dog slot machine. Five paylines, autoplay,
 a progressive Wiener Jackpot (three **Cash** symbols on the middle line), and
-seven very long dogs. Play money only — no accounts, purchases, or real-money
+seven real dachshunds. Play money only — no accounts, purchases, or real-money
 gambling.
 
 Everything is in `index.html`; there are no external libraries, fonts, or build
-tools. The Cash jackpot symbol is the `cashmoney.jpg` photo, cropped and inlined
-as a data URI, so the page still makes no image requests. Progress is saved in
-the browser with `localStorage`.
+tools. All seven symbols are photos, cropped to the symbol tile and inlined as
+data URIs, so the page still makes no image requests. Progress is saved in the
+browser with `localStorage`.
 
 ## Play on this computer
 
