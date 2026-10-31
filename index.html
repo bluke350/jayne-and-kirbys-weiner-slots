@@ -1,0 +1,3115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0716">
+<title>Jayne &amp; Kirby&rsquo;s Weiner Slots &mdash; Wiener Dog Jackpot</title>
+<meta name="description" content="Jayne & Kirby's Weiner Slots: a three-reel wiener dog slot machine. Five paylines, a progressive Wiener Jackpot, autoplay, and very long dogs.">
+<meta property="og:title" content="Jayne & Kirby's Weiner Slots">
+<meta property="og:description" content="Three reels, five paylines, and a progressive Wiener Jackpot. Play money only.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="icons/icon-512.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Weiner Slots">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23180c2c'/%3E%3Cellipse cx='36' cy='36' rx='19' ry='9' fill='%23b8632b'/%3E%3Ccircle cx='19' cy='29' r='9' fill='%23c9793d'/%3E%3Cellipse cx='9' cy='32' rx='7' ry='4.5' fill='%23e2ae74'/%3E%3Ccircle cx='5' cy='32' r='2.4' fill='%23241510'/%3E%3Ccircle cx='16' cy='26' r='1.7' fill='%23241510'/%3E%3Crect x='24' y='43' width='5' height='8' rx='2.5' fill='%238a451a'/%3E%3Crect x='42' y='43' width='5' height='8' rx='2.5' fill='%238a451a'/%3E%3Ccircle cx='18' cy='15' r='8' fill='%23ffd36a'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --ink: #08050f;
+    --panel: #1a0f2e;
+    --panel-lo: #120a22;
+    --gold: #ffd36a;
+    --gold-deep: #f0a51f;
+    --cream: #fff4d6;
+    --pink: #ff709f;
+    --mint: #5ce6c4;
+    --violet: #c8a6ff;
+    --muted: #a99cc4;
+    --line: rgba(255, 255, 255, 0.09);
+    --mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", Menlo, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { min-height: 100%; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 26px 16px 40px;
+    color: var(--cream);
+    font-family: "Trebuchet MS", "Segoe UI", system-ui, -apple-system, sans-serif;
+    background:
+      radial-gradient(1000px 720px at 50% -12%, #452465 0%, rgba(69, 36, 101, 0) 62%),
+      radial-gradient(820px 700px at 4% 100%, #0e3a37 0%, rgba(14, 58, 55, 0) 60%),
+      radial-gradient(900px 700px at 100% 88%, #3c1233 0%, rgba(60, 18, 51, 0) 58%),
+      #080510;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.075) 1px, transparent 1.4px);
+    background-size: 28px 28px;
+    opacity: 0.28;
+    -webkit-mask-image: radial-gradient(ellipse 80% 75% at 50% 40%, #000 20%, transparent 75%);
+    mask-image: radial-gradient(ellipse 80% 75% at 50% 40%, #000 20%, transparent 75%);
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(500px 320px at 18% 8%, rgba(255, 112, 159, 0.09), transparent 70%),
+      radial-gradient(460px 300px at 82% 18%, rgba(92, 230, 196, 0.07), transparent 70%);
+    filter: blur(8px);
+  }
+
+  button {
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button:focus-visible {
+    outline: 2px solid var(--mint);
+    outline-offset: 3px;
+  }
+
+  .cabinet {
+    position: relative;
+    z-index: 1;
+    width: min(890px, 100%);
+    padding: clamp(16px, 3vw, 28px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 211, 106, 0.28);
+    background:
+      linear-gradient(158deg, rgba(47, 26, 74, 0.97) 0%, rgba(22, 11, 39, 0.98) 48%, rgba(14, 7, 26, 0.99) 100%);
+    box-shadow:
+      0 40px 100px rgba(0, 0, 0, 0.68),
+      0 4px 22px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      0 0 0 7px rgba(255, 255, 255, 0.018),
+      0 0 90px rgba(255, 112, 159, 0.08);
+  }
+
+  .cabinet::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border-radius: 26px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    pointer-events: none;
+  }
+
+  .masthead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: clamp(8px, 2vw, 16px);
+    min-width: 0;
+  }
+
+  #mascot {
+    width: clamp(64px, 11vw, 98px);
+    height: auto;
+    flex: none;
+    filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.5));
+  }
+
+  .brand-copy { min-width: 0; }
+
+  .kicker {
+    margin: 0 0 2px;
+    font-size: clamp(8px, 1.25vw, 10px);
+    font-weight: 700;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: var(--mint);
+    white-space: nowrap;
+  }
+
+  h1 {
+    margin: 0;
+    font-family: "Arial Black", "Trebuchet MS", Impact, sans-serif;
+    font-size: clamp(26px, 5.6vw, 46px);
+    line-height: 0.92;
+    letter-spacing: -0.025em;
+    text-transform: uppercase;
+    background: linear-gradient(178deg, #fff9e3 4%, var(--gold) 38%, #f2a51f 74%, #ffe8a8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 2px 0 rgba(87, 39, 0, 0.55)) drop-shadow(0 8px 18px rgba(255, 172, 48, 0.2));
+  }
+
+  h1 span {
+    background: linear-gradient(178deg, #ffe6f1 0%, var(--pink) 45%, #d33c76 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .sound-btn {
+    flex: none;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 211, 106, 0.3);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025));
+    color: var(--gold);
+    transition: transform 0.16s ease, background 0.16s ease, color 0.16s ease;
+  }
+
+  .sound-btn:hover { transform: translateY(-1px); background: rgba(255, 211, 106, 0.12); }
+  .sound-btn svg { width: 20px; height: 20px; display: block; }
+  .sound-btn .speaker-off { display: none; }
+  .sound-btn[aria-pressed="true"] { color: var(--muted); }
+  .sound-btn[aria-pressed="true"] .speaker-on { display: none; }
+  .sound-btn[aria-pressed="true"] .speaker-off { display: block; }
+
+  .hud {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr 1fr;
+    gap: 10px;
+    margin: 18px 0 14px;
+  }
+
+  .stat {
+    position: relative;
+    overflow: hidden;
+    padding: 9px 15px 10px;
+    border-radius: 15px;
+    border: 1px solid var(--line);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .stat::after {
+    content: "";
+    position: absolute;
+    inset: auto -20% -70% -20%;
+    height: 80px;
+    background: radial-gradient(closest-side, var(--glow, transparent), transparent);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .stat.balance { --glow: rgba(92, 230, 196, 0.22); }
+  .stat.last-win { --glow: rgba(255, 211, 106, 0.24); }
+  .stat.bet-stat { --glow: rgba(255, 112, 159, 0.18); }
+
+  .stat .label {
+    display: block;
+    margin-bottom: 1px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .stat .value {
+    display: block;
+    font-family: var(--mono);
+    font-size: clamp(20px, 3.4vw, 29px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+    color: #fffaf0;
+    text-shadow: 0 2px 12px rgba(255, 255, 255, 0.1);
+  }
+
+  .stat.balance .value { color: var(--mint); text-shadow: 0 0 20px rgba(92, 230, 196, 0.25); }
+  .stat.last-win .value { color: var(--gold); text-shadow: 0 0 20px rgba(255, 211, 106, 0.24); }
+  .stat.bet-stat .value { color: #ffd9e5; }
+
+  .value.bump { animation: bump 0.42s cubic-bezier(0.2, 1.5, 0.4, 1); }
+  @keyframes bump {
+    0% { transform: scale(1); }
+    35% { transform: scale(1.13); }
+    100% { transform: scale(1); }
+  }
+
+  .jackpot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin: 0 0 14px;
+    padding: 8px 16px 9px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 211, 106, 0.34);
+    background:
+      radial-gradient(120% 190% at 0% 0%, rgba(255, 211, 106, 0.17), transparent 62%),
+      linear-gradient(90deg, rgba(255, 112, 159, 0.09), rgba(255, 211, 106, 0.06));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.09),
+      0 10px 26px rgba(0, 0, 0, 0.2);
+  }
+
+  .jackpot-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+  }
+
+  .jackpot-kicker {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+
+  .jackpot-rule {
+    font-size: 8.5px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .jackpot-value {
+    flex: none;
+    font-family: var(--mono);
+    font-size: clamp(21px, 3.4vw, 28px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+    color: #fff4c4;
+    text-shadow: 0 0 18px rgba(255, 211, 106, 0.45), 0 2px 0 rgba(110, 56, 0, 0.5);
+  }
+
+  .jackpot-value::before {
+    content: "\25C6";
+    margin-right: 6px;
+    font-size: 0.55em;
+    vertical-align: 0.2em;
+    color: var(--pink);
+  }
+
+  .stage {
+    position: relative;
+    border-radius: 23px;
+    background:
+      radial-gradient(120% 90% at 50% 0%, rgba(98, 53, 145, 0.22), transparent 62%),
+      #090512;
+    border: 1px solid rgba(255, 211, 106, 0.12);
+    box-shadow: inset 0 0 46px rgba(0, 0, 0, 0.66), 0 20px 44px rgba(0, 0, 0, 0.36);
+    overflow: hidden;
+  }
+
+  canvas#game {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 840 / 656;
+  }
+
+  .win-banner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 4;
+    min-width: 190px;
+    padding: 13px 34px 15px;
+    border-radius: 22px;
+    border: 1.5px solid rgba(255, 211, 106, 0.85);
+    background:
+      radial-gradient(120% 160% at 50% -20%, rgba(255, 184, 77, 0.25), transparent 55%),
+      rgba(13, 7, 22, 0.9);
+    box-shadow:
+      0 0 0 6px rgba(255, 211, 106, 0.07),
+      0 0 60px rgba(255, 183, 61, 0.38),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.72) rotate(-2deg);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+  }
+
+  .win-banner.show {
+    animation: bannerIn 0.52s cubic-bezier(0.18, 1.55, 0.42, 1) forwards;
+  }
+
+  .win-banner.hide {
+    animation: bannerOut 0.26s ease-in forwards;
+  }
+
+  @keyframes bannerIn {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.55) rotate(-5deg); }
+    65% { opacity: 1; transform: translate(-50%, -50%) scale(1.07) rotate(1deg); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+  }
+
+  @keyframes bannerOut {
+    from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    to { opacity: 0; transform: translate(-50%, -58%) scale(0.92); }
+  }
+
+  .banner-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.4em;
+    text-indent: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .banner-amount {
+    display: block;
+    margin: 1px 0 0;
+    font-family: "Arial Black", Impact, sans-serif;
+    font-size: clamp(34px, 7vw, 58px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: #fff7df;
+    text-shadow: 0 0 24px rgba(255, 205, 98, 0.55), 0 4px 0 rgba(96, 44, 0, 0.55);
+  }
+
+  .banner-sub {
+    display: block;
+    margin-top: 4px;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255, 244, 214, 0.62);
+  }
+
+  .win-banner.big .banner-amount { color: var(--pink); text-shadow: 0 0 28px rgba(255, 112, 159, 0.6), 0 4px 0 rgba(96, 16, 45, 0.6); }
+  .win-banner.mega { border-color: var(--pink); box-shadow: 0 0 0 6px rgba(255, 112, 159, 0.08), 0 0 70px rgba(255, 112, 159, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.2); }
+  .win-banner.jackpot {
+    border-color: #fff0a0;
+    box-shadow:
+      0 0 0 7px rgba(255, 211, 106, 0.11),
+      0 0 90px rgba(255, 211, 106, 0.55),
+      inset 0 1px 0 rgba(255, 255, 255, 0.26);
+  }
+  .win-banner.jackpot .banner-label { color: var(--pink); }
+  .win-banner.jackpot .banner-amount { color: #ffe27a; text-shadow: 0 0 34px rgba(255, 211, 106, 0.78), 0 4px 0 rgba(96, 44, 0, 0.6); }
+
+  .controls {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .bet-control {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-self: start;
+    padding: 5px;
+    border-radius: 18px;
+    border: 1px solid var(--line);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015));
+  }
+
+  .bet-btn {
+    width: 40px;
+    height: 40px;
+    flex: none;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255, 211, 106, 0.28);
+    border-radius: 13px;
+    background: linear-gradient(180deg, rgba(255, 211, 106, 0.14), rgba(255, 211, 106, 0.04));
+    color: var(--gold);
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1;
+    padding: 0 0 3px;
+    transition: transform 0.12s ease, background 0.16s ease, opacity 0.2s;
+  }
+
+  .bet-btn:hover:not(:disabled) { background: rgba(255, 211, 106, 0.2); transform: translateY(-1px); }
+  .bet-btn:active:not(:disabled) { transform: translateY(1px) scale(0.96); }
+  .bet-btn:disabled { opacity: 0.35; cursor: default; }
+
+  .bet-readout {
+    min-width: 92px;
+    padding: 0 8px;
+    text-align: center;
+    line-height: 1;
+  }
+
+  .bet-readout .bet-label {
+    display: block;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.26em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .bet-readout .bet-value {
+    display: block;
+    margin: 2px 0 1px;
+    font-family: var(--mono);
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--cream);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .bet-readout .bet-line {
+    display: block;
+    font-size: 8.5px;
+    letter-spacing: 0.11em;
+    color: var(--muted);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .spin-btn {
+    position: relative;
+    justify-self: center;
+    min-width: clamp(140px, 24vw, 186px);
+    padding: 12px 30px 13px;
+    border: 0;
+    border-radius: 999px;
+    background:
+      linear-gradient(180deg, #fff3bd 0%, #ffd061 34%, #f4a71c 72%, #d9870b 100%);
+    box-shadow:
+      0 5px 0 #8a5004,
+      0 12px 26px rgba(255, 166, 34, 0.3),
+      inset 0 2px 0 rgba(255, 255, 255, 0.75),
+      inset 0 -3px 8px rgba(124, 61, 0, 0.35);
+    color: #2c1600;
+    font-family: "Arial Black", Impact, sans-serif;
+    font-size: clamp(20px, 3.4vw, 27px);
+    letter-spacing: 0.08em;
+    line-height: 1;
+    text-transform: uppercase;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+    transition: transform 0.1s ease, filter 0.18s ease, box-shadow 0.1s ease;
+  }
+
+  .spin-btn small {
+    display: block;
+    margin-top: 3px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 7.5px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: rgba(56, 28, 0, 0.62);
+    text-shadow: none;
+    text-transform: uppercase;
+  }
+
+  .spin-btn:hover:not(:disabled) { filter: brightness(1.06); transform: translateY(-1px); }
+  .spin-btn:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 2px 0 #8a5004, 0 6px 14px rgba(255, 166, 34, 0.24), inset 0 2px 0 rgba(255, 255, 255, 0.65); }
+
+  .spin-btn:disabled {
+    cursor: default;
+    filter: saturate(0.45) brightness(0.66);
+    box-shadow: 0 5px 0 #563400, 0 8px 18px rgba(0, 0, 0, 0.28), inset 0 2px 0 rgba(255, 255, 255, 0.35);
+  }
+
+  .spin-btn .spin-dogs {
+    display: inline-block;
+    transform: translateY(1px);
+  }
+
+  .spin-btn.spinning .spin-dogs { animation: dogDash 0.5s linear infinite; }
+  @keyframes dogDash {
+    0%, 100% { transform: translateY(1px) translateX(0); }
+    50% { transform: translateY(-1px) translateX(2px); }
+  }
+
+  .side-actions {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .lines-badge {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 13px;
+    border-radius: 15px;
+    border: 1px dashed rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.025);
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    line-height: 1.25;
+    white-space: nowrap;
+  }
+
+  .lines-badge b {
+    display: block;
+    font-family: var(--mono);
+    font-size: 16px;
+    letter-spacing: 0;
+    color: var(--violet);
+  }
+
+  .refill-btn {
+    justify-self: end;
+    padding: 10px 15px;
+    border-radius: 13px;
+    border: 1px solid rgba(92, 230, 196, 0.45);
+    background: rgba(92, 230, 196, 0.11);
+    color: var(--mint);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    transition: background 0.16s, transform 0.12s;
+  }
+
+  .refill-btn:hover { background: rgba(92, 230, 196, 0.2); transform: translateY(-1px); }
+  .refill-btn[hidden] { display: none; }
+
+  .auto-btn {
+    padding: 10px 13px;
+    border-radius: 13px;
+    border: 1px solid rgba(200, 166, 255, 0.42);
+    background: rgba(200, 166, 255, 0.1);
+    color: var(--violet);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background 0.16s, color 0.16s, transform 0.12s, border-color 0.16s;
+  }
+
+  .auto-btn:hover:not(:disabled) { background: rgba(200, 166, 255, 0.2); transform: translateY(-1px); }
+  .auto-btn[aria-pressed="true"] {
+    border-color: rgba(255, 112, 159, 0.6);
+    background: rgba(255, 112, 159, 0.17);
+    color: #ffd9e5;
+  }
+  .auto-btn:disabled { opacity: 0.38; cursor: default; }
+
+  .status {
+    min-height: 20px;
+    margin: 13px 2px 0;
+    text-align: center;
+    font-size: 11.5px;
+    line-height: 1.45;
+    letter-spacing: 0.02em;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+
+  .status.good { color: var(--gold); }
+  .status.alert { color: var(--pink); }
+
+  .session {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px 18px;
+    margin: 12px 0 0;
+    padding: 8px 12px 9px;
+    border-radius: 12px;
+    border: 1px dashed rgba(255, 255, 255, 0.09);
+    background: rgba(255, 255, 255, 0.018);
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .session span {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 5px;
+    white-space: nowrap;
+  }
+
+  .session b {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0;
+    color: #e7dcf6;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .session .session-hit b { color: var(--mint); }
+
+  .paytable {
+    margin-top: 15px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.075);
+  }
+
+  .pay-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 9px;
+  }
+
+  .pay-head h2 {
+    margin: 0;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+
+  .pay-head p {
+    margin: 0;
+    font-size: 8.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: right;
+  }
+
+  .pay-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .pay-item {
+    position: relative;
+    overflow: hidden;
+    padding: 6px 5px 7px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.065);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.08));
+    text-align: center;
+  }
+
+  .pay-item.is-jackpot {
+    border-color: rgba(255, 211, 106, 0.42);
+    background:
+      radial-gradient(110% 130% at 50% 0%, rgba(255, 211, 106, 0.16), transparent 70%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.08));
+    box-shadow: inset 0 1px 0 rgba(255, 240, 180, 0.18), 0 0 18px rgba(255, 211, 106, 0.08);
+  }
+
+  .pay-item.is-jackpot .pay-name { color: var(--gold); }
+
+  .pay-item canvas {
+    display: block;
+    width: 100%;
+    height: clamp(38px, 6.4vw, 55px);
+    margin-bottom: 3px;
+    filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.4));
+  }
+
+  .pay-name {
+    display: block;
+    font-size: 8.5px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 244, 214, 0.78);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .pay-values {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 3px;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .pay-note {
+    display: block;
+    margin-top: 3px;
+    font-size: 6.8px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    white-space: nowrap;
+    opacity: 0.9;
+  }
+
+  .pay-values span {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    color: #d9cdec;
+    white-space: nowrap;
+  }
+
+  .pay-values em {
+    font-style: normal;
+    font-size: 7px;
+    font-weight: 800;
+    color: var(--muted);
+  }
+
+  .pay-values .triple { color: var(--gold); }
+
+  .footnote {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 13px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.045);
+    font-size: 8px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: rgba(169, 156, 196, 0.6);
+  }
+
+  .footnote span:last-child { text-align: right; }
+
+  .link-btn {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: rgba(169, 156, 196, 0.82);
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    cursor: pointer;
+  }
+
+  .link-btn:hover { color: var(--gold); }
+
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    z-index: 20;
+    transform: translate(-50%, 18px);
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 211, 106, 0.35);
+    background: rgba(20, 11, 34, 0.94);
+    color: var(--cream);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.22s ease, transform 0.22s ease;
+  }
+
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+  @media (max-width: 620px) {
+    body { padding: 12px 8px 28px; }
+    .cabinet { border-radius: 22px; }
+    .cabinet::before { border-radius: 18px; }
+    .hud { gap: 6px; margin-top: 14px; }
+    .stat { padding: 8px 9px; border-radius: 12px; }
+    .stat .label { font-size: 7.5px; letter-spacing: 0.16em; }
+    .jackpot { padding: 7px 11px 8px; gap: 8px; margin-bottom: 11px; border-radius: 13px; }
+    .jackpot-kicker { font-size: 8px; letter-spacing: 0.2em; }
+    .jackpot-rule { font-size: 7.5px; letter-spacing: 0.08em; }
+    .session { gap: 4px 12px; padding: 7px 9px 8px; font-size: 7.5px; letter-spacing: 0.09em; }
+    .session b { font-size: 11px; }
+    .auto-btn { padding: 9px 11px; font-size: 9px; }
+    .controls { grid-template-columns: auto 1fr; gap: 9px; }
+    .spin-btn { grid-column: 1 / -1; grid-row: 2; justify-self: stretch; }
+    .lines-badge, .refill-btn { grid-column: 2; grid-row: 1; justify-self: end; }
+    .side-actions { grid-column: 2; grid-row: 1; justify-self: end; flex-wrap: wrap; justify-content: flex-end; }
+    .bet-control { justify-self: start; }
+    .bet-btn { width: 36px; height: 36px; }
+    .bet-readout { min-width: 76px; }
+    .bet-readout .bet-value { font-size: 20px; }
+    .pay-head { flex-direction: column; gap: 3px; align-items: flex-start; }
+    .pay-head p { text-align: left; }
+    .pay-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .pay-values { gap: 3px; font-size: 8.5px; }
+    .pay-values em { display: none; }
+    .footnote { flex-direction: column; gap: 4px; text-align: center; }
+    .footnote span:last-child { text-align: center; }
+  }
+
+  @media (max-width: 400px) {
+    .kicker { letter-spacing: 0.22em; }
+    .pay-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .pay-note { font-size: 6.2px; letter-spacing: 0.05em; }
+    .bet-readout .bet-line { font-size: 7.5px; }
+    .lines-badge { padding: 7px 10px; }
+    .jackpot-rule { display: none; }
+    .session { gap: 3px 10px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .win-banner.show { animation-duration: 0.01ms; }
+    .spin-btn.spinning .spin-dogs { animation: none; }
+    .value.bump { animation: none; }
+  }
+</style>
+</head>
+<body>
+<main class="cabinet" aria-label="Jayne &amp; Kirby&rsquo;s Weiner Slots game cabinet">
+  <header class="masthead">
+    <div class="brand">
+      <canvas id="mascot" width="196" height="144" aria-hidden="true"></canvas>
+      <div class="brand-copy">
+        <p class="kicker">Jayne &amp; Kirby&rsquo;s</p>
+        <h1>Weiner <span>Slots</span></h1>
+      </div>
+    </div>
+    <button id="soundBtn" class="sound-btn" type="button" aria-label="Mute sound" aria-pressed="false" title="Toggle sound (M)">
+      <svg class="speaker-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 9.5v5h3.2L12 18V6L7.2 9.5H4Z" fill="currentColor" stroke="none"/>
+        <path d="M15.5 8.5a5 5 0 0 1 0 7"/>
+        <path d="M18.2 5.8a8.8 8.8 0 0 1 0 12.4"/>
+      </svg>
+      <svg class="speaker-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 9.5v5h3.2L12 18V6L7.2 9.5H4Z" fill="currentColor" stroke="none"/>
+        <path d="m16 9.5 5 5m0-5-5 5"/>
+      </svg>
+    </button>
+  </header>
+
+  <section class="hud" aria-label="Game statistics">
+    <div class="stat balance">
+      <span class="label">Balance</span>
+      <span class="value" id="balanceValue">1,000</span>
+    </div>
+    <div class="stat last-win">
+      <span class="label">Last Win</span>
+      <span class="value" id="lastWinValue">0</span>
+    </div>
+    <div class="stat bet-stat">
+      <span class="label">Current Bet</span>
+      <span class="value" id="betValue">10</span>
+    </div>
+  </section>
+
+  <section class="jackpot" aria-label="Progressive jackpot" title="Grows by 5% of every bet. Win with three Cash on the middle line.">
+    <div class="jackpot-copy">
+      <span class="jackpot-kicker">Wiener Jackpot</span>
+      <span class="jackpot-rule">3 Cash on the middle line</span>
+    </div>
+    <span class="jackpot-value" id="jackpotValue">500</span>
+  </section>
+
+  <div class="stage">
+    <canvas id="game" width="840" height="656" aria-label="Three by three slot reels showing wiener dogs">
+      Your browser needs HTML5 Canvas to play Jayne &amp; Kirby&rsquo;s Weiner Slots.
+    </canvas>
+    <div id="winBanner" class="win-banner" aria-hidden="true">
+      <span class="banner-label" id="bannerLabel">Winner</span>
+      <span class="banner-amount" id="bannerAmount">+0</span>
+      <span class="banner-sub" id="bannerSub">credits</span>
+    </div>
+  </div>
+
+  <section class="controls" aria-label="Game controls">
+    <div class="bet-control">
+      <button id="betDown" class="bet-btn" type="button" aria-label="Decrease bet">−</button>
+      <div class="bet-readout">
+        <span class="bet-label">Bet</span>
+        <span class="bet-value" id="betReadout">10</span>
+        <span class="bet-line" id="lineBetReadout">2 per line</span>
+      </div>
+      <button id="betUp" class="bet-btn" type="button" aria-label="Increase bet">+</button>
+    </div>
+
+    <button id="spinBtn" class="spin-btn" type="button">
+      <span class="spin-dogs" aria-hidden="true">🌭</span> <span id="spinLabel">Spin</span>
+      <small>or press space</small>
+    </button>
+
+    <div class="side-actions">
+      <button id="autoBtn" class="auto-btn" type="button" aria-pressed="false" title="Autoplay 10 spins (A)">
+        <span id="autoLabel">Auto ×10</span>
+      </button>
+      <div class="lines-badge"><span>Paylines<br><b>5</b></span></div>
+      <button id="refillBtn" class="refill-btn" type="button" hidden>+500 credits</button>
+    </div>
+  </section>
+
+  <p id="status" class="status" role="status" aria-live="polite">Three reels. Five paylines. One very long dog. Pick a bet and spin.</p>
+
+  <section class="session" aria-label="Session statistics">
+    <span>Spins <b id="statSpins">0</b></span>
+    <span>Wagered <b id="statWagered">0</b></span>
+    <span>Best win <b id="statBest">0</b></span>
+    <span class="session-hit">Hit rate <b id="statHits">—</b></span>
+  </section>
+
+  <section class="paytable" aria-label="Paytable">
+    <div class="pay-head">
+      <h2>Paytable</h2>
+      <p>Line-bet multipliers &middot; count from the left</p>
+    </div>
+    <div id="payGrid" class="pay-grid"></div>
+  </section>
+
+  <footer class="footnote">
+    <span>5 paylines &middot; 93.4% base RTP &middot; play money only</span>
+    <span>Woof responsibly 🐾 &middot; <button id="resetBtn" class="link-btn" type="button">reset game</button></span>
+  </footer>
+</main>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<noscript>
+  <p style="text-align:center;color:#ffd36a;font-family:sans-serif">Jayne &amp; Kirby&rsquo;s Weiner Slots needs JavaScript enabled. The dogs are very disappointed.</p>
+</noscript>
+<script>
+'use strict';
+
+/* ------------------------------------------------------------------ *
+ *  PICKLE SLOTS — three reels of extremely long dogs
+ *  All art is drawn procedurally on canvas. No external assets.
+ * ------------------------------------------------------------------ */
+
+const CW = 840;
+const CH = 656;
+const GRID_LEFT = 30;
+const GRID_TOP = 30;
+const GAP = 16;
+const CARD_W = (CW - GRID_LEFT * 2 - GAP * 2) / 3;
+const CARD_H = (CH - GRID_TOP * 2 - GAP * 2) / 3;
+const PITCH_X = CARD_W + GAP;
+const PITCH_Y = CARD_H + GAP;
+const GRID_H = CARD_H * 3 + GAP * 2;
+const STRIP_LEN = 64;
+const BET_STEPS = [5, 10, 20, 50, 100];
+const START_BALANCE = 1000;
+const SAVE_KEY = 'pickleSlots.v2';
+const JACKPOT_SEED = 500;
+const JACKPOT_RATE = 0.05; // 5% of each bet feeds the meter
+const JACKPOT_LINE = 1; // middle row, paid on three Cash symbols
+const AUTO_SPINS = 10;
+const AUTO_DELAY = 520;
+const AUTO_WIN_DELAY = 1500;
+const AUTO_BIG_DELAY = 2400;
+
+const SYMBOLS = [
+  {
+    id: 'frank',
+    name: 'Frank',
+    weight: 26,
+    pair: 1,
+    triple: 11,
+    style: 'hotdog',
+    accent: '#ffb35c',
+    card: ['#3a2015', '#170d09'],
+    glow: 'rgba(255, 179, 92, 0.30)',
+    palette: {
+      coat: '#d0562f', coatHi: '#ef7a46', coatLo: '#9c3518',
+      belly: '#f2c07a', muzzle: '#f6d6a4', ear: '#7f2a10',
+      earHi: '#b8502e', paw: '#f6d9ad', outline: 'rgba(45, 18, 8, 0.85)'
+    }
+  },
+  {
+    id: 'pepper',
+    name: 'Pepper',
+    weight: 22,
+    pair: 1,
+    triple: 15,
+    style: 'classic',
+    accent: '#f0955c',
+    card: ['#341b13', '#150b08'],
+    glow: 'rgba(240, 149, 92, 0.28)',
+    palette: {
+      coat: '#b8632b', coatHi: '#d88344', coatLo: '#7f3e17',
+      belly: '#f0c68e', muzzle: '#e8b77c', ear: '#6f3213',
+      earHi: '#9c4c21', paw: '#f0c68e', outline: 'rgba(45, 21, 8, 0.82)'
+    }
+  },
+  {
+    id: 'tux',
+    name: 'Tux',
+    weight: 18,
+    pair: 3,
+    triple: 24,
+    style: 'tux',
+    accent: '#a99bff',
+    card: ['#241d45', '#0c0a1a'],
+    glow: 'rgba(169, 155, 255, 0.30)',
+    palette: {
+      coat: '#2a2838', coatHi: '#46425c', coatLo: '#15131f',
+      belly: '#f2ecdd', muzzle: '#f2ecdd', ear: '#14121d',
+      earHi: '#3a3549', paw: '#f2ecdd', outline: 'rgba(8, 6, 16, 0.9)'
+    }
+  },
+  {
+    id: 'pickle',
+    name: 'Dill',
+    weight: 12,
+    pair: 4,
+    triple: 42,
+    style: 'pickle',
+    accent: '#9ee37d',
+    card: ['#19321e', '#07110b'],
+    glow: 'rgba(158, 227, 125, 0.30)',
+    palette: {
+      coat: '#7cb85f', coatHi: '#a4d97f', coatLo: '#4f8239',
+      belly: '#d7ecb0', muzzle: '#c8e39f', ear: '#3f6b2c',
+      earHi: '#5f9543', paw: '#d7ecb0', outline: 'rgba(18, 40, 12, 0.85)'
+    }
+  },
+  {
+    id: 'king',
+    name: 'King',
+    weight: 8,
+    pair: 7,
+    triple: 80,
+    style: 'king',
+    accent: '#ffd36a',
+    card: ['#3b260c', '#170e05'],
+    glow: 'rgba(255, 211, 106, 0.34)',
+    palette: {
+      coat: '#d6a044', coatHi: '#f4c96a', coatLo: '#9c6a22',
+      belly: '#f6e3b4', muzzle: '#f2d9a0', ear: '#8a5c1c',
+      earHi: '#b8842f', paw: '#f6e3b4', outline: 'rgba(60, 36, 4, 0.82)'
+    }
+  },
+  {
+    id: 'cash',
+    name: 'Cash',
+    weight: 6,
+    pair: 6,
+    triple: 70,
+    style: 'cash',
+    jackpot: true,
+    accent: '#ffd36a',
+    card: ['#123a24', '#06130c'],
+    glow: 'rgba(120, 224, 150, 0.30)',
+    palette: {
+      coat: '#3d8f5f', coatHi: '#63b981', coatLo: '#25603f',
+      belly: '#d6efc4', muzzle: '#e2f3cf', ear: '#1c4a2f',
+      earHi: '#357a52', paw: '#eaf7d9', outline: 'rgba(8, 36, 20, 0.85)'
+    }
+  },
+  {
+    id: 'luke',
+    name: 'Luke',
+    weight: 8,
+    pair: 3,
+    triple: 30,
+    style: 'luke',
+    accent: '#9db8ff',
+    card: ['#1b2450', '#080b18'],
+    glow: 'rgba(157, 184, 255, 0.30)',
+    palette: {
+      coat: '#6f7fb5', coatHi: '#9aa9dd', coatLo: '#465180',
+      belly: '#e6e9f7', muzzle: '#dfe4f5', ear: '#39426b',
+      earHi: '#5b6699', paw: '#e6e9f7', outline: 'rgba(18, 22, 44, 0.85)'
+    }
+  }
+];
+
+const PAYLINES = [
+  { rows: [0, 0, 0], color: '#ffd36a' },
+  { rows: [1, 1, 1], color: '#5ce6c4' },
+  { rows: [2, 2, 2], color: '#ff9dbd' },
+  { rows: [0, 1, 2], color: '#9db8ff' },
+  { rows: [2, 1, 0], color: '#c8a6ff' }
+];
+
+const PAY_ORDER = ['cash', 'king', 'pickle', 'luke', 'tux', 'pepper', 'frank'];
+const WEIGHT_TOTAL = SYMBOLS.reduce((sum, s) => sum + s.weight, 0);
+const SYMBOL_BY_ID = new Map(SYMBOLS.map((s) => [s.id, s]));
+
+const dom = {
+  canvas: document.getElementById('game'),
+  mascot: document.getElementById('mascot'),
+  balance: document.getElementById('balanceValue'),
+  lastWin: document.getElementById('lastWinValue'),
+  betValue: document.getElementById('betValue'),
+  betReadout: document.getElementById('betReadout'),
+  lineBet: document.getElementById('lineBetReadout'),
+  spin: document.getElementById('spinBtn'),
+  spinLabel: document.getElementById('spinLabel'),
+  betUp: document.getElementById('betUp'),
+  betDown: document.getElementById('betDown'),
+  sound: document.getElementById('soundBtn'),
+  status: document.getElementById('status'),
+  banner: document.getElementById('winBanner'),
+  bannerLabel: document.getElementById('bannerLabel'),
+  bannerAmount: document.getElementById('bannerAmount'),
+  bannerSub: document.getElementById('bannerSub'),
+  payGrid: document.getElementById('payGrid'),
+  refill: document.getElementById('refillBtn'),
+  toast: document.getElementById('toast'),
+  jackpot: document.getElementById('jackpotValue'),
+  auto: document.getElementById('autoBtn'),
+  autoLabel: document.getElementById('autoLabel'),
+  statSpins: document.getElementById('statSpins'),
+  statWagered: document.getElementById('statWagered'),
+  statBest: document.getElementById('statBest'),
+  statHits: document.getElementById('statHits'),
+  reset: document.getElementById('resetBtn')
+};
+
+const ctx = dom.canvas.getContext('2d');
+const mctx = dom.mascot.getContext('2d');
+
+function emptyStats() {
+  return { spins: 0, wagered: 0, won: 0, bestWin: 0, hits: 0 };
+}
+
+const state = {
+  balance: START_BALANCE,
+  betIndex: 1,
+  lastWin: 0,
+  spinning: false,
+  wins: [],
+  winCells: new Map(),
+  winStart: 0,
+  winUntil: 0,
+  bannerTimer: 0,
+  confetti: [],
+  jackpot: JACKPOT_SEED,
+  stats: emptyStats(),
+  autoRemaining: 0,
+  autoSpin: false,
+  autoTimer: 0,
+  lastFrame: 0
+};
+
+let prefersReducedMotion = false;
+try {
+  prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+} catch (err) {
+  prefersReducedMotion = false;
+}
+
+/* ------------------------------- storage ------------------------------- */
+
+function safeCount(value) {
+  return Number.isFinite(value) && value >= 0 ? Math.floor(value) : 0;
+}
+
+function loadGame() {
+  let data = null;
+  try {
+    const raw = localStorage.getItem(SAVE_KEY);
+    if (!raw) return;
+    data = JSON.parse(raw);
+  } catch (err) {
+    return;
+  }
+  if (!data || data.v !== 2) return;
+
+  if (Number.isFinite(data.balance)) {
+    state.balance = clamp(Math.floor(data.balance), 0, 1000000000);
+  }
+  if (Number.isInteger(data.betIndex)) {
+    state.betIndex = clamp(data.betIndex, 0, BET_STEPS.length - 1);
+  }
+  if (Number.isFinite(data.jackpot)) {
+    state.jackpot = Math.max(JACKPOT_SEED, Math.floor(data.jackpot));
+  }
+  if (data.stats && typeof data.stats === 'object') {
+    state.stats = {
+      spins: safeCount(data.stats.spins),
+      wagered: safeCount(data.stats.wagered),
+      won: safeCount(data.stats.won),
+      bestWin: safeCount(data.stats.bestWin),
+      hits: safeCount(data.stats.hits)
+    };
+  }
+}
+
+function saveGame() {
+  try {
+    localStorage.setItem(SAVE_KEY, JSON.stringify({
+      v: 2,
+      balance: state.balance,
+      betIndex: state.betIndex,
+      jackpot: state.jackpot,
+      stats: state.stats
+    }));
+  } catch (err) {
+    /* Storage can be unavailable in private mode; the game still plays. */
+  }
+}
+
+/* ----------------------------- randomness ----------------------------- */
+
+const cryptoSource = window.crypto || window.msCrypto;
+
+function randomUnit() {
+  if (cryptoSource && typeof cryptoSource.getRandomValues === 'function') {
+    const buf = new Uint32Array(1);
+    cryptoSource.getRandomValues(buf);
+    return buf[0] / 4294967296;
+  }
+  return Math.random();
+}
+
+function secureInt(max) {
+  if (!Number.isFinite(max) || max <= 0) return 0;
+  const limit = max | 0;
+  if (cryptoSource && typeof cryptoSource.getRandomValues === 'function') {
+    const ceiling = Math.floor(4294967296 / limit) * limit;
+    const buf = new Uint32Array(1);
+    do {
+      cryptoSource.getRandomValues(buf);
+    } while (buf[0] >= ceiling);
+    return buf[0] % limit;
+  }
+  return Math.floor(randomUnit() * limit) % limit;
+}
+
+function pickSymbol() {
+  let ticket = randomUnit() * WEIGHT_TOTAL;
+  for (let i = 0; i < SYMBOLS.length; i += 1) {
+    ticket -= SYMBOLS[i].weight;
+    if (ticket < 0) return SYMBOLS[i];
+  }
+  return SYMBOLS[SYMBOLS.length - 1];
+}
+
+/* ------------------------------- helpers ------------------------------- */
+
+function clamp(value, min, max) {
+  return Math.min(max, Math.max(min, value));
+}
+
+function formatNumber(value) {
+  return Math.round(value).toLocaleString('en-US');
+}
+
+function getBet() {
+  return BET_STEPS[state.betIndex];
+}
+
+function getLineBet() {
+  return getBet() / PAYLINES.length;
+}
+
+function roundRect(targetCtx, x, y, w, h, r) {
+  const radius = Math.min(r, w / 2, h / 2);
+  targetCtx.beginPath();
+  targetCtx.moveTo(x + radius, y);
+  targetCtx.arcTo(x + w, y, x + w, y + h, radius);
+  targetCtx.arcTo(x + w, y + h, x, y + h, radius);
+  targetCtx.arcTo(x, y + h, x, y, radius);
+  targetCtx.arcTo(x, y, x + w, y, radius);
+  targetCtx.closePath();
+}
+
+function makeStrip() {
+  const strip = [];
+  let previous = null;
+  let run = 0;
+  for (let i = 0; i < STRIP_LEN; i += 1) {
+    let symbol = pickSymbol();
+    let guard = 0;
+    while (symbol.id === previous && run >= 2 && guard < 20) {
+      symbol = pickSymbol();
+      guard += 1;
+    }
+    run = symbol.id === previous ? run + 1 : 1;
+    previous = symbol.id;
+    strip.push(symbol);
+  }
+  return strip;
+}
+
+function setStripSymbol(reel, cellIndex, symbol) {
+  const wrapped = ((cellIndex % STRIP_LEN) + STRIP_LEN) % STRIP_LEN;
+  reel.strip[wrapped] = symbol;
+}
+
+function symbolAt(reel, cellIndex) {
+  const wrapped = ((cellIndex % STRIP_LEN) + STRIP_LEN) % STRIP_LEN;
+  return reel.strip[wrapped];
+}
+
+/* ------------------------------- canvas -------------------------------- */
+
+function fitCanvas() {
+  const dpr = clamp(window.devicePixelRatio || 1, 1, 2.5);
+  dom.canvas.width = Math.round(CW * dpr);
+  dom.canvas.height = Math.round(CH * dpr);
+  dom.canvas.style.width = '100%';
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+
+function sizeMascot() {
+  mctx.setTransform(2, 0, 0, 2, 0, 0);
+}
+
+window.addEventListener('resize', fitCanvas, { passive: true });
+
+/* ------------------------------- dog art ------------------------------- */
+
+/* The Cash jackpot symbol is a photo, cropped to the symbol card and inlined
+ * as a data URI so the game stays one self-contained file with no requests. */
+const CASH_PHOTO_SRC = 'data:image/webp;base64,UklGRmovAABXRUJQVlA4IF4vAADwQQGdASoIApABPm00lUikIqSqI5LawUANiWduUN06n4o17wBzb0Bh/cXGohLsSXEE7um87sfuEXB23H9IuVkI3g2y5rbfG5eJu5dvTz+2EK1NP2oHbPHtj1oFp83nOtZiNcj8iS+u5eGmpqaeLyHnislfqp4Tvkunp8AbEFdIuRmX1HHoH/4UPSF4LUiGlVYpGaaTaLQr05NF4EwMBgASJ8nHUahMsURGZmQB2gENgTj+VbBO4kLg8hGC67hOg7gbyCSUZhT1nbkJVN4Iui5INL/uNsHtadk4/+uCWBIV2rCCZqU7IMmxV14VhPTVoee1/MqpxfcswD87VGz/2n232mpLJZRv4OItNA02kQ7Am1G4QeRGwdM+W/gU5UX5AUn8yB3iGTywz0u2pfRLpQ/frkwJAKaN9LrnNz/ifQz7RjMjqFv6ZuBe4QZbV01iCJUfHNC1DQr4iFcZf+/yWmPVg7zZF2gO9m/iqmN/SRKVlnzydgWLfFVaHDz7KADruOeXDNAB+5erdos5P0MdycLAhCv21gV5xWskPfLAHC3zbbWaxVqyyOgXprlkqrV8fN+SjU/ClXtE5Lkazt3kC8AKynYI88SYS4ZNpj2esNBRJ77sI//4pLlCn3bZWr9wAtUjSDwGhqOTpamNZJzzXbWLiVYuiMHNAiwC8CphXPa7EV7vv7pAgY/tlWG41PEV/9k9jIRI806pC+hsT51kXRCPKske3jXgiZAlxHasCg1gXduHtNgmCzeJ8qbU5mNSXot/wrH3VwBbXhtKDC1WQxziBmZHfCMJAr87cgSpiYK6w/YzfQ5smclp8GbPF8lJBKdlS6dB5Eii/I7sIthoidDpsaRhseFxkuChyzW/TcuG/RevsV4+W77TjAPJNXmI5Dr3N25VSiiGy9b6/Bq0+/imrZp6UX2gf4kgQDDrK6oqOI4YHL1pBvztSbrVRtg6a7dZddLmowG19VmQ4nwj3rv5Y0tn4B0avn3mhML1nprb1gz4jrSzQVZ9Z7JaBthNDQY1uT0lM/j86W5c45XRV+TLMF8mKHvO3muyVUS9PZhLLXnBJfSteLnvVSmmuIe/6BihUGPfJNWHUw2vrif/pmeb4EwlE10e5iKXzoSbkKf2jsfqxKMGvw+9LuhHjNO3wNIiiLTBLhWNDw1Ais+0ZoQUrIonwbKa56gYjiTsMETfm6VRQ/hmMZVT2HMQbt9mWnBcm2qK8ouXKsrJhuFlgBc2zfjkGidTDGmdbEHQZXBj3nH1tDdG0eme08GCL8wH0w0BGDB7xk0M8EDdKsgdjYaOgmh2zyODUirTFE9kmlbj4uBa2XA0wuBH9918Pr3k28aj5xsSBz95OSbQ5uYCRSfYnIi+dV9Oh+cPZmhfN5oQJMBmVx4YraW4ewSPLUuu9WGUw0ekrUTNLhJaTLEughLaXiYUMdpY8JL95/IvH5wPavKV5y39lkb/kZrFvH+85xcTuTv0R0OchfQgMPEyHivZlfIi6HAYYk1FVMoxpluA4wHVP+pJMwc/vZqvOQtzMWHvY96rc22pzMbjWlCy7clTg08whPvvUHyen/J54fZgggUVlVo0QRVVOd0ifc3sd/rgD0LY6LkD1a9cK0Yjv/N9PSDYVC8bq/tKQ+g+36NJJzMMiA4MlshfOTk8AlQy+2BsCvGsthV3qbU9StyWw0ojWQD07jEstQwJfnxw3AmcGxgftKQLjAOwYOgm18ludC7/Sp+fwuI7RGXWTB7ob7qr++ewpk64u7xhoGd/bUFK8jIKBJO39Km9ehpHn56Z6iEjIRBKgBnNUHji8j0Xa0Ojh4rW0yCgoXZYccSM4IW9/PNLb+7Hy20djUVCgN2n1wJVxpy/T2dThvwSOnwg+bCwPAyTb06E8BwKHw0dsX/1xIaI7Cn3KKH3gopFfIowa9gCG55iM4gZ0vvFEor9udVqmLHRewmok6RBDR307DNQ5AFBPhpkbnYHYqM3nyXKZCEdHXy+VDUNMFCD5bjCJtbbuHYA/1jgvIZnXDKxU1H81f/1V0rzMfGgZQmFfgtT4A7el+lphqFCjdxcoiq7s0Wbq3QIp+e7tUo6axXA0no7WQrbhJ/+d4iLjdi2xvbpLV6ctkC9Oij6n0+HCX8Hp3r72FNrqu6YenrS5c5etWZnB/k5RsSvdrNiS/3e9XFXAmBJ7cLkqt9e2P8oz1VcYF/y11nZlosyn98TWxBLNMAMqLwPN4TrE/k7exKNxFvGP7UmM71wwMt1U3bBIi/gre1g3BwAct7LKWOOp2pWUj3ynXuoixkHj6P4EByo5mOwaLqlZa7uBF6FxCrUU0OFkqQMRcylnG2nIuSw3hw+rhOt5rsUTcpoidp6SPURXCaQrkhnWK18A/Fjjtm5tJVO4P29QRjZNUJ1mTKECK9xdZi9onadckgGhv/q+6BVVVuFZ1smlDsw2vo+XsL07iCidL0krINd/wQTPQfyOZNJmjjQloeoag7TmXQTtI2KJuGvvBrV/YvuR/0XCdxme2KWtKAzNAii/wFwj0WyDCKg4xpvL+mmeSasP6qbSBu0syykvoN63NRePx5GxRgzBh0fCS6BAMtKIrewISfL6W1RwjJXeLz8rirTZs3IWMV3ab+55pCY7oZYZKTK+89mjaNzQaLhUtn9a3baeGeKSr4CarL+X3fCQgXGgrB9MP91M1B88sCc81eVgFN22/T+W5aKT8mVKxlaU6/kr9kIME15X+GzlfwjUOQLDeXQVLkhZjma5SVjUA253x8wnrhWHCYEvVmWkN7abyQmiBP9n1sizJ0sFB6h+hPNZBiXiWlCFxFhdoGbZ9jLWxJI8VA66Hu2fDtSyz8XHzWe1Ocp4Qb0oCQGNY3bTHSJ4i7WBlYjgy8VLENXukyi6Xxh8LJzzMF4DXE6F10b2JBAwEMLAXLAMIKHt9mpalgJg2mwQU5IKt/uQ6PK3EKD1QuJHC9AYVbANpfq20loMfh3GxgPYHaTio2Pgd48/uNAKXM7/7xbTUVVFtYUF57e1GXWmt0vkmZORaiAvrF4K1Z9MEE32Y0BHEczR63UZb63aToeAz/5zIg+vRX+4+6d2uEiKUvniLpH8XiH0m4dClJoNU7EdTfbO/+Vw4c3EZgW9YNigQFzT9Ah1XMt9XcOaCHzxjW7uBpjOGmoGH8gLBZ71BtWKDf3mFAFE3cC5qQfBUDz8xJ4ADGM4lCagLXQE8aYemLhlIMGZO8yphYcZFYML+jT5+AGuqhSj4PAWsAC+/An8qKBSGlykSXwzhxQrwRUuXt5Th4WsnGPSNMaVz4bHo7zC/YDHadpb6a/KlmJHsE6m4nyGqjNH23dUp1n3sLCAGYNBvnzz2MPQmbGtlW0uJkBbOc9gptSVKeEjh6nt5NLAgEovHO58kZa8zVtdD98VBjpckaTYyjOF3A6E05nY/cXEnjtG/1jUbXKV2Y++EGAAP6+QXGJ/8kc9dSb0Jd7aQsUz8LxdiLBo2dZrA+AFYeldk3PW8y7k2ZQ1cALtGtj6jayyOwCmsG63QI38dzsvIncSTofUDzuL1kavcLYqaF1rNYpGmfI8WPCpRqktxLifruv8HAivTWflGJrqPlxM0AIC9parqmXpva4iDokEm5GG6ISSEkiAn+CxiNawHXP1aIgfZUvZbIhe7CVopZwyi4J0mKqc5jaZGZl7CJyXZT+4C6/doVM1LI391yiD8UEKsXVZgpK2UxAogaJ1D2PEk5k7BODqNDkXAqiFPbkX4oHgv4F0Irh4dH2Jwq3sF7T8k2qnm+ZwbyOqdAQAzbeg0AnfYee9Wwmoxg1N6gM2j7Vy9mnBXSRq4YtT59ViSsLsCran2MN+UwxEAFZhsfeZElDfwZwDQZ4LpYPfi+5QMXA8/wS6KzDkq+pkDa/0gCPpsX1Y8upybDVtUXfN/KwACRCmP0SjQp4yG5L1F/gL3SdjpqlHJbq2/6CMEsTOt+yFPIAcdJtTKPcNj3tBPsJIHwfTl/AHV2gA3nVBFEUBUVhIkk6pBBp6Hz+8Ht+8NLwly66cZ/UoC9DOJrwOEGz0QOnRCKjyxac8TTMJsVmLbZgH73JbeHoOBpZx84hFnbWgO1UGdVk47RuOz8zvWgxmE5XHIfJAC+iBOGpJZ2wceNlRTp594uO069PCMUwH4KbsUQyWjCtoq0CwuDIxMPPIJOdx6ok7e+cGt99DA2Ly2xVtpw/1Jfosw/4AVCWKyAEdGmj26N6mioJOZH3anJW4Xch1u6FX5S7HTNQ7RRr9IQSAllVbwBcnIBTNmTbWdJtB9pVH0yuW8yMoWKuQoj1CKu9oIuWpZ6GzBl4QuLr5AtFXBuIxFvyBB3S0qWyL369JdmoLdHlYU3n8jseOeDfYKKI7ZrV0k4hSzPoC+mPjcENzYYBSgaBmfUedi2Ia2IJPKXcflRU16rbmq8FHfTy1jEJXJbyPOhnVJYnSQPErLCBSBTzZamUI5MxivxUhbv9vhNNEIEVJsakBPT+epGQDj2F6JrzCE1ti78hrsboiPtjI1xnAhVApJDIQz53yebwxgQvwZ6OcCAULHIt9h670iQuIEUrDrH2cbDvRBwZAPkI0Wf6E6Q8JSZmOhnlI5aCRJI7svgvwI8I2Gfghor/VyAsxNpGvA6JTcC1Bvw4sRj/K6pO+Jy9DCFMB4RsvWyEg1+V7gj4bxY1vByX8+u/9W7SwaHjGNo9ipX1ggHQnFBPTzDPCtmZW4sAW/ThmH886wPqSt9YQnd7ywb89df/k0HMlUTytcpzqz1lUG/uySKMCVpUm9hKT6LOAb7crqnurHPbSi4lFd4GcP40Myf7icA8MZDj/zrR2ErDeLL06AnKEahvNkDcICmuH0UVUDkYtmm9Ozv6uPGdfvIJb620hA2qU/Abw+8wbWUto+X4q2XNTAFkRi9lc8aa74qaA9IuiKZ+1eWlE1gWNW9+H2hfbQT7veDDManOgc3XeSn3jhaqpn6Ijw+n7eBq7LPy64TQE6DSCDzarwItj2jWTjdNO81ozkoJXkj3VUn6NMTvk5o+CrHXutk3TxuqvmC7f8rOXT9caO1lGIeMUiirMDXDXQEyav/2NG8tyYqJ0yyVTJ4/SuJdQc+CS6YAO69ZXUrz55czfjTA6s89yvbStEoeXaWFZ1EDBgxs8z37pGztn6F1yWQi1V6gd0snPWYgaEqj3s54oOKIWK0OzSr+LY0OFivQusO5YoUSWnw0jW+B3MkhHzy8CA42J3Qmdav6qXAu9I4ovGpi9ltIN0ENsSeuS0hzvZbrUyRksZrNOawmaMfEo6EQsG28syURtJajeu/ye0fCOtG7VvAG65N9zz/SXhtij6t4XwdTsrqS2DXRALxlKTMAgOfAxOmcvcJ87QWEV7WYFAbzrAhb1qL0uoxGrgIjfkTXpZL/NtffhnKIfjVO3wyYw7M/m7gMbv5kJUf5AhUuaTPapppUUmN8G77subMYHMJrv/xeZzAnDz03ISt8pIKlWpMVPRHQjjXfT3kW9+w7YCi2fsav8nxvVdF2bPvp2B2bbJ7Pfm4+k36RBOasfi6gnTHiFwwVW+g/4CZTYpm9wHPmwtduxJsle0GZClAZxYTOnrDVal8ITHBK1weCi6cX8wMJUuDQ4mQm6jV1O2DZvLG73ifzln0K4NwGH4EbNbjP4Y4JKVt5jRZviUITriuE0r5Q7ojQj/2kz+JloX+EXvhu4dDfSXeHNmao9PU/M8ZzyfLXTlVhu5G6uQD9tFmy6rSIlNfSEoK1cc0NRdbwiwkdpkTiC/L9lvgIgW87fz+d71H2BjZpS+zoX4EPZCCAxBVIKlHuOb3cvSAxzm1TfH5WlIs8y4ywQnGWkEGh0gjSI56xIyaaUBgGcgNlhJzYZ4OObNYhQyjZ4suPK+LpSKl/MBWV/i6t1Th8sdozH6+UnYlPi7vODrkgCI5ICKyeCGRWYAgywL80w6zY2gL9S8MfhR7jquMERf+zSj+dO9sFnU6gnbOkkpar5z8fkl2nkSW6C++I9mwfUcNk6a127qlGeUaFVIEGwghsQ3lfUIz/A3hjhoGxJOfWrDEHIKCvDxAr47nFR/6oLBaWU+GuiR7k02v4fPmjXSllTkhM1A1/6b26E+5LS5tVmtZeCvopNZSVive8GJiqSBtEnC4/VQ7477uiBwDzQTEn1ZsJj/y5kmy/dcOoqtaT9z9CxwVJsqCRJfrGmqdqDyCNupB86EgPEK0xFFLi//bzHQ2Azz2VI3ustEnTzgJUY7jjzeHEIiNFx3JPIgEulLqPdYENUmzZyb7naEwVuwgqbiJID0PiPe1EytL9BYAyuO0gOmQMkoVvUYLxKOAVSu+JrpDFlzHZKBU0eS5lgbreYROyPQY97NwcRkDjA7V9pVF3xzkVUTu4QC+RwITr6Os6n8yqnZ72ic3i40yqtNNNqZ6WxCvRHTDfFe22t9JtRznAiWLTvdQ1xV1Vx7ZFfcWAIFfDaTTIsQX4zljbNAbEvO+qDVuaYaLvGEBK4qS2pN2+Lu/ayGuxGP9yG6PVkmkDyxSDbMvz3QWGSSh0auDn7pu8ZM/C5JsdZsbXg3uGzQ06E4SBjeIsPLsS1Sn6W4PKxipmF6R5dYhHMmIjfOqcDoh9/0aGsmpFIwtjvcp5feaRHZEpcg5BrwUcZsxV082408frhVx692CqXOM1wjIqsfpRjG2OqINT/saFYGCEm7q1X7ha9Bn9dFW9FOroO6scH93PfEvxE0RKK5LnwvuJi3Fm8XfIxPIcoRs0jAlvXga0ZYk1XTdKf2zx+dCoubd3+qzl9PmLTr8hdpDE32GpzgImQONYQVY/c4cvzRcw5Jegwp1Bfu0Z1SVDexjfbanrCE8kwiJXSgVM+Z8QhbLXkYCzfkkJUerUTfW1b9bmqKghtIhYc4mLUAj4hhqhPbT95UFrEEuA5XitvrstJnXIgEaL0AsOvRBnCSYAuz0SClBGsVuMrITDwBpTLu1Gsgv3Sl23t1gHHOYAI1k0F1RyA5wp/A8xiQIcXNQRDptR2W79egFbLQD/YiXbjmUDhlGnddX0mky7mZj5lvA4y9FhQi0St0A9W7IoTwMevmDt16lNWYJ5VGq0ptj78fyEOct4LDhr35M6RBhQLb+Hxnx6NpNhPPPrqj4Yw0kPjdMvYXCw/om2PJjMCFeCnP6Xf3Ou3IWTJot7dufbs1J+wDAuI70vPuXMSnvpzcqT2zYttZvmdVovGMMrA5JXODBs8FriVZSIWylEllC9Kj0IG7EZjKhl+5p4eDM43YAONzgeS1Leab1NQlckG3TgN5f/2sWJT+u2SgMcaWhEHXsHLTVvTI5NwSVKfz+rnRsRVF6uYJwagz8tdCsyEfuaeFU3GqeaEdeZIWDKP4OQJ4XikZzOsqkWfQBiIMLlCavl4JbhoFrts4fDQyZ/x3D++fPAzXf+k7AdzD3jqxx6dP74dr+jklKfmLy/ps4HfVpedr7zIrQwf/pBtV1vTge5dwFnz0SKKGcFr1oer8HfRSV/Td9bn2zJXrQaLzQU5Fy9gFgObF4/2eCxKP/wbo3ha4HtTo3M+jNVVi0zK1jbH9bKSE8ftlOesQ1IzGd34WYrmppceoEzL3xPsxTxPzJCBorcEQo3D7zXGHly3Y+O8c//LWIpc1eGgDUSvVbwLK2r1OOz665xMbBUS3w/TSNVKpl/1jqIgmM1bn/K1uuuDfG38nxnbEqgpgVYy14C8WP08llRaAisSlVeQfacF2JT7dFrb8f+szWf2uIoaJbSjitZcQVk7SPublGDHljJanrvFdnwdRDutRS8dcxZJVqTG00YEkuJbr71hd4+kxVFf1f8lb++VPd80Chs5h6P9ZQ4cXFRdCqjN42tNvOXRuqAtGywEp34k0mWfRBKPGqfDmpbZ1q1dlGkzodXTGRd+XbYp5cf1GanvxOdgH8H5woj3lttcAInjuK2MjIgpKMa9Xp/LhxqMkNi39Y8ru1qNh7djB8C2UO1DppsV3dHVPVoeD7+917KhfeWMKi9rrw7uL5qWVb3qe0YHVU7W8cas9hn+4EZZxoFhesjTxSdCq5HGtd4gVdnimdDx80p8H2rgv0m2W4Qtn3IqOk8B0SnEyPiU1p/8wa/PUvHJYEkVY8rcVAHvNyxefmmc360kffM3UI8LAABlyb7WfDnrjytxMxsxqgMV72FkTbGamtX8BreWPCjMpaWggs8nwpaLqZSYNiP7S/+xyQLjBMBOEononhgnTToE49jjDZ2cdL3GKy17ncyWJMjWGvPQCLPysWCNgbYBdXirFO5cpb0F3DQBF5/rkdeCAMiPRSrPrf2tSXuMijs2z4plHRcUbjRTUjsnGK2i0mN4tHnhN98JuQV7DgTbaQ9F0WhL5fdmCNGRLAmcs9KwtKdtcDMBRH3bbu8pwCgZ0/15hIpyU1BLxQj1U5DiJ/c5aNQIQs1m9sY6PKo1lJZNDWjEHqm4N8Aph73Td2AfrF3EgVgXjbcbTiqcFUOMuj1m+uXE9jAOEl0I5xsp+ZFqn+jkNKXVXQgEX8OQJJtlU1xKX9/TS7bgicmYausIZc/Ij4n3CFqzRzLBdS8Uw1SnEMehxwn9Nssz3R6v7E3FSW4lcM39Niq2jNDupwoFtZqTFD6bfYg5t/kq7cRNAvBafr0zX/BpROts++IFG8y+wWnOqKvxfTuaJZtlr87eUm226G6jjimu22QJYr/zBmnTMatcBG3yIxjYYRjskTEcR6ljVJ8H7Uo9ioL2DXdhAHn8t57fygTUb1qvNuacNp/XNW8UnuaLfX3Is2H0iKunYgNNC21ksWGamdynqKJP+Ouigp0VRej4CHpZtUoPJ8D9VNPDuLw1kJGkA4pXdbLv2sWphpKctIRG5Q+cVOaPeCJk489DFZARy1r/sfBjfEEekTYWRTuPMLQ+rpohqgAgA/ze/+/mLyUhIB0CjaDu9CfjyvWK3FxWWb5S703JaiRQEGjmif24wLj++YfWKG6II39gxDun5Jb+1eUQENtP43nK2oKY567GLs6SvlSUWH4xGbFxVN18LXpwuohpEXmaDZ2++EGHFTABdkHjqRWxOxn8bfnpt9f93QLHjb873euRBQBv9lNtOCp6aqITNNLrccv8ySWn/yvsOHzuKATwUYga/Mmdn5frslmgHk+FrZgINX5ImaEVyAUIdd4bGEpYhGjsBhTlejfr8TsiS2RFmSm9kiLdVOWuvdMgOSbMF0naiA123iR8zUySoStjiXR572MbqC8n3txzOZlLfWgyLZ/VSmiSed0jFjuvO1uV7UxABcjdjSolzZaXMuXj7W4XgJK/2CjvWxneCNBAEN0Brn0/lcG2j72HoTfZI3fcRVaIoV9wrNy6f5MWSFOmSGfSFm6uOuxTHxnpWu8C4YspeS/bugmCei7T6KAGWf0BocyB4Mc1hlNVVotCFwOLehP2Rg1zJ/LCuZTdUG5oc28ZPTYTH3Poz/z4B4f8d/K+OY3PuXFehhYanrH1EoZFtYIs6Xa5r+9PmpUQTdmqvcgxwSAbQEk8gaRGsdDwc+iilP6YOHsgrpnrWJ7gduzINfCAdyn/eIjGHwO+Dyj4UdH1X/AtwzKzS1VtrzzgPAtmDILyvClu0+FPEe5kGFK6h29GEDOPFq/G71ZwTSXV3fBUUdSrazYENTJVxGq24eahlG5CUOQOFNdsJuyvCpKq+LF2LUVqr6tkyG7VyqMdAU7g17PjA6kqK2nPtg9VpMwNQcMoZ1LeIPywKp2KiZp8S2AzNqZISXUsBBSoFV7arqfKkJ3ZkaCf0/i5EPTD7lLrLQo7Rgzqxal/aYNdH2KpB6G/houxOPUJay5EFRMhtmo9u08XnC0it6hvgqtvKwEESt/+aqRX+qjzt+emWjs0yh18lQVDJMdTS5+VEPwpysLtcvGRhmoDxcI4ItNR9Q8jcDfdTmWupBhjcChImENLjh3oY8AE4a+WyYiQeqPjyDB3UWeUxeVkDW1tYFc0GWL0tefTFRQ+RVyAZ13KSsVmT95mrlwImGaMCpOgQXN5jNWKWiZ38ibSm9uLvjU0pck2RE8Z1ca4R8kTgJjwP0uTeyUbrhJqArdNanYdKN5AH/FAYETTIsvM0p4+jR7xaFSHoe1gAmXJFEONkojjvGmV+Q2ZaEry3KI/FGhjIJ3ocspAQiDZ3X0Htano25bgtn5Li+F7Qbg6tbhOCrGkKYLCkNkkts54jOUa+0IJ6+Md48AHFRnsB9+Ocq0TzGeFyUXN5G5pgryEMuJM5lyBmdsfrreeQp/exMhLmDGDfpeVP01kG1fX1AIPVWkjD+OYvxsd3UJ0LxgnBniktmdyIuAt+WMYMNR3jwjrNy2CtufQE7TCz8V5cHAjEzTvUHYoRtT++lI/uo5A2JCFRV6LDSLuJLR0jUOp/nmQ/oySy+JsW7gbQC+bmILX7EvtXBLOYwvQ2GfVXfKijyQkrrh2/SyyzQz37mehNfm3b4HAphHfH4Ba4RHyWQG7iMf9oXkG8CAhrANRxOlCgyi1+uXzpgu5Ft+gddcDUG6xZMbS0ZIE1iP8RApC8O9tJ0wxi1juza4b3T1jEuozjX3CwtP/pzxcq0wlVWSle45i8VNR8bc2/JWR/kxyCaloX5zujWLyRkpY1ljMzH/aPQOFpo4FzQavvQB/EyuVhP4ZXQj72RAiXnjUxh/NjQTr9z3i2eBvjjK3mEhfIGamWZN5z+8Jc+hsc5ZrggjaKxra9SOvAxucmh4N998R59GRwoN7iRPJDIBzn4AOAT/3Rb2kxM3xgBIjQRdxf/tqGoRNqdK0W+YkyQRfElNJD5JH+eIkxSnngPTxup1dGxjo8tduK6lUzhPFUfWoV7iGDuadmAgTHmVRqngdHEvG2UiGjpJiA272EKlSgOSk+6KZ43AcoqGMjcdPs0694dD6mu3wOLasZNToWX212nWdhsHqegi1x3XTYyO0pwkP/Ol+bXFkvPQCp87VW6Yp9bvU57bBtITDi6zr5cFC1UB/timgI6fhWKCfBIf64GCbsOi5Woic7UVIADYIyO/DMeDd4IcgY/Js8POEiYKyNuVRCqW61G8epByuF361PImDLCOCSR1LDcUHT17Fnt7Ee2SkFIAwm7W47wMH5gNUnhpRUQP85FMFgOpW3jozgQLjAM9a9PPRgs3m7PfVLSF7nJ6m/tqeDhcUU5ZFsUJ8odzN14uKjFo5pRmKfAjm7/a4GqE2bioYWzPZhvn9ASswcP2hll5NgEZ2fnVaC+mWeiKU2dJVus07o9F5t18eOf7VF4E+MxAfqFR4CCg5Dxv6jORha/Fgnm1rYT/LCcFFGBJ3Hl0SENmkjEJWuwDGczXCUoH95lmg9/eOWM+25TdG+Hr4zgX/CICKLAvu6ZVlqTxr0u0gxlEVfXVy13B0EgOy5GLyImwDayjGvqYPJtqQW0W9sintCJmnRDJmhBGY1R9m0EKl7sRb4+yOjNUQxMZGOhhD6WanAD2ki89/w6WBGIPcihuR2qe5FdvjyQ31E91q0AWzMXiClUe9Z3XHbZHniYd73CYBijWzLWsPkPdFjkYmbdyg0c+ZtvmJli04eq15MIZjJFCeM2te4tQlny0mH7cl9tj2cM+oT8hq05FlawgoDnpHWw5NpW+6VwjvUJyOzVE0srurBhU5sOITCrTumsB3gI2qwuD7XihBLRZ2pCDRsLc8ibGwk5wTZyUc9oZLkPwOCQaX8RjmThGvpJlRZHPPZZPqz12M/dmOKef8vyJxQ+HDSuzfAPw0E2L+aNuFh4R1fVK9zgfQmSGuwMGt+PaWn3VDMLzdpzquMtMb695ochDK8kGvzuYb0XrGlg2RZSzi49VphANOUs07PNXotjJOJKNlZXbY8A9LFaEHOkd7LfWLuGS4iw6cDyKXy4jXltQEtyO7Unv3ZZ7JXtFGf8JzGOsnwDh5x+XRuSfJ/zIek/0uSvDYAJ1Q1SUPoIwTYmjmRKsFYwAqq4xU0QkEd83UfS5QvgjruqV9BWOvOXCbDZapNugdN7zewxT8QTlblU+TGokxcI+LFGaa+jHnFLXgi6gBP+ZzP9n6sr6Xwb+DflxWRgwFsuGel3MrpKRs4AP5HObHWGS1KGo7at7SKzVv3fGe40YP9fYu4bCqXomyOF0d3dEkjNIf2h5C2LPFKcqdDsFjuc1pfNjJuK284FZwEYfmwRgDTnagoaAxfVHD2hJ86IrEtwkr0s0Yy80O8CvLvA/Fhau0N9hbE+AEqEcMCd7GBc7k0m1WsuyVKMGwhagRjENWi+B41gzsaJ4wpr4kRBBe6JlfVbd0Bw7RHwJhwAHfB5tt9+5cT5i/+QfjwHbR/8e49Ec84SUPujPbb4YkdhPdPcEWBFVCVCjfnNAuGQBXeRhJezD8VKBdIAoc5GuPO+whhxErq8toktGIBCKjWn2YTgTHH3u9p+g2EMHSiRBAc7B8BHTKUyUqd6X+02O1TenlFVVRuhKoNJ/pcq3usFHraTedL4Lyp7qLYQlb4f4QXrcAtzjcBwM5QljAEEoghlS0K7Szq7Vzd3AVWsgbgs+I88vTVkeapZIevm/nvLa7HKIGXBjMYhrHgwIH8DAFUmtbuDynbNryXQq8mSvYuj9XntPyn+avpimnVGis3Orjhx9rI329OW64cL82snrbAYwzUYlAJ7aXUq1cynrAkmwRoIl4KzGI4SURIlXvfV3G9aOoBhCrhPyZH6GRodVul7ThEgFeWoKegYSmL82p6wCvVYvbiG9tcOmLQwldceDpR8G9iXx8pq+aopjO5uysuZxA0BU/xt0+SinY2tQl96y8wscmmWnNHGOKyse4NslGTCAP1k/lcv8PG03ZfjoB/JbnnrBqRYu+xlKcQFFI3kdo5c4zKy219qfzO4lhVV+O6kCqiQajvgm9I+VuLZNzoMttqtTT2EJ0rlKtrqDj5rD9A4g/L+SKhcuQIER6Ql0JELWTeF8HrxIFwUmlJFPgMtpE6D4FKDT4GGGTsEOna2Rs7ST0mBtImh3dkMDJoUeTBHp0eSNv6+e4HxJ1Rn/fMYz5Mjf2wE1aCXdZ5CQ+cBd58c1tzzZzDrfVPX3+QyTlaO3IMYHvjRndNCbG2yqZdyc1X8MhZFWJG+0g+eW07dDEJ8ymC6EsQlQJYpMxV7gqzeK+dqQSZ+J4w9XzyIQbanNuZnYlNG4DtuKOV8TYlDeON7xfK8RkUg1QpaEn4SWbbAU+Ks24P7gw2ZFTuKTHd93uIFqWc57r06U3SRRLaJicJKcom3a/C42TrYaI8gzMjy13ptWNmsY0SQNAD2JV+azfYT6Sid5+hs0lywkHknm2+xoocuRmE7XvMFFcOT4nWBlZvUCiim39MQZOu/lTvpVj/N2CRzHO9pN0oQnbHHGteg0u3f8qXhaPIVbQ2mqP6j9cyln10NJbllsHA4e5XyTMU3d8shUh/SqBgb26Z5R/mkUew9PQtNUVzO6v8b+sDF38SNZRM5hQJTsP9CPrj4qh6Lj1BjDU/7jxk6GSIuQJ3i1zwCL1taQs2Z4JFk2l9OR1rKNNXciqAX1nO7L7Btz9rc4jfH4pyoQJPkvBq2/5VxtRSgnhHeuUVwGpxADhfvCSh+rZGpn1KTQC0aGa7q/a1vi4tsxBFp7c8yNtQW9ygRbHAtz+jCNItSxC24B+qq99ugvCZY1NLSmT4NezwM0yKfGU7GDiBRcUFyHnTtgoZs2Mtv7cK6wExdnjTjRJKnr4FS2lToZvlEudSd9o2yMCosppw37Gbmn2Q1aH1RCUJYRcXKbkiJ0NGxtchA/cjG/uTMv3W4bWEHYD1jF7htPYAStLGj9Ti5IRKk4jVHpgU2pEZTlXJfzK2kx49l3TMz9/nA71rTr392S7fz6WahCQpVGoB8qzAHFDAsZ/guHW8y8Z9iLxrLtTqfw8tZYurY2/wnLtUhD8NQoOfBizlFYm027lJx06xOn3tHCj7SXJqdWiJvcZ7SAWTTsRkWhw3XGyzbR9LacANBzjWiuYXuso5FdYUKsDrJ4cDQ7t1Ra9Quj/WF9W/EyfWbK6F0Z7XwIBBAD5cdGnHXN/4oiDlqhBITSYKhHKfhYoeymkIQcHCaDwBkMVi5pjYY6TkdXMQsr+tADPQ2LVD/jzv7g8QMgOxUxVnr3zJStgQmoiQ5/heZZxg/X3ZAIcyllmWZg8ocpexAbl74XdUE7TGW3LmyFkyUCEq1fhyYFnphj/Q/+cRXGnwWzkk65ALV+LJbqflliih/74pPKDuhnacL+3hYBzUtZY8t3xFaCbbCivtsSaHnPB0+beFD0u2yoddM2nay6lkWFX0rEylogSkojQv4FUCNBsP6aRPHR868ERfcpaCLLE1ON64Jnh2oW4qc5BIxS53VsBdNtKgOO6NoufYjby4/hX2ZrL0hslEOk2ed+p0NyOE8cBpjvuxJ2Ax/WT1KFhHpX65vTid+nZj3xlVa5YUiStd0f/x0/mvV/UtNZgMEdvneUVuU1gxSsjookzNLrurVXBA0wsc4QxBi9s1Z76WrjF6Zn6J9LoqyMVezATyH+RGiZ9JWhFl2msF5XAr9YNmt5u6MMqZS6fdXXkLRO42zbJ6TGMAcyLIacLMvSYbEn9H3U7Cwiyeg4umPqCuk2G/QuiGkJhLrd/C1E4kmbldJSgBhtB/5KNRi3Nf2Wk+tYPWQOBEiW3NZh63NwFTWZebOCzqAyH3CPBkwCpSOi2qEEyK3A4Bk3A1G1Yeq0cpMalo1uoroSLoU3OhDt+xZEuAz0hwv3vqZg9+S9+GjINNSwXQJ9ni7dNUWLOk+YAyo5UgN8jwTogRtV/D9QVoDQXGwzJaKjAt9e34CqpneSyQQbG4Wp+dOUlXWOibcm1CtyHDJIjQZMlxt7GU3+DZAKaIsZHNfA1vjTWyIQ8hPPzZrNcH8KX+hf5QVDqFy3mMrU+f/VR21bffCubRCbKwchC6LnHrOJJ8EBu0wcqs8GJAOyIo/NppD2yQDwHQPWoIIFJQvCS5iHY3XpiQwVc6e600Djm0IiZlgSMLQJeMZ4MMEOhiGK4h7Bh9TyttmhTU2gJaTnVrwo1wJt2PE5b9ya12+czp72rm+4pW69mJHRF/xxnxN+FYDBz848NpGhotZhUjBLbwRjrwCoKw8J/njLSqPJb3Nrau2oDps4PIgYBbRw+zmm6aTYJRMm+H2j+vNYPhQfMsX6zmDD0sbipxqphtoznumnTmhZ+avW883H1ySzJ5e5agu/NfF354KHZicpmdZoX0MVpxsxdpuE1nao701hn/HsNoDTpB6FMYwr79avYFZ4E5svBLX903n/u3GVL9JpZin24ickh5vJgG2pKfbcKRF2kXkDYt/BjnOrJcyq2IS8JpYfVixc2p9ictqIciSoRqfVGCx4W7gtbNdzJ8g0RZqiaHLBc6xCOyuBwVHArhwDOQU7fs+6SFcYGZ/xh+4CGAzdekG6ND/Ih+xGD/f8n/Qr/MPR+vqmIxYvUYe7yNQJtdXaMyBen6oMTHhBsmeBalJVwOmTCLC1ZvVcI8gRY7fxIESTfMTsSdG4iqHu+lLx8O9hqH2LwGY3RZXO0AgrvZgGJMGMpXwyIPbazO24ddRoFlTFPi6mu+TT9O3LYkk3E0rfiSDbsnHdtpADXjOCjZtbzyZH97/GcyYXJj8PGtDyttX9qvDmPLf5Z11jD4rLrT/TE5RVPKgZG8RUY2KAHUmYTIzroyQCNkRC7jADLiTSp/VAOngsIu4C7dn8igDX4/skPwLlz5xQARyl0aG2QD1oyxDgqlbHyigTudG7EyEnM90ooP3fJX1vgvcYgQIsH5msZv8cBht8T9L+aYSKgpHwEmrUYl5e3oH7nz2DMaudik62/JFYGrXBMG6W+6qzgVnZIaqnGMm6Vh3ajqxFwCczbj8+kVgeaxoGVWGf4hNMphdNPRhF/DngXrMBwnGu4lCdgo7mzZpRTUqFaKO5WrKkp1JyXozHflvl+8WfOtLENjUDtgejui4WjU38EVLTsVK+pLgW7bSTO2pFHZrziwhFqdHOBzlr4/ql6GkmQxnauXkEjV+rJwIZcsiFNJ/StTIjHTY5ssR0ql54mEThbGJ8KSPd4f8R5b1QFtMul1uTrKRAlK/l5khmNAIPrVwRkZZ0ais/D+OnkcgO3eUXJ/jtcSdjZAmbsRsQ9V6OKRpjBbJwQXiuHQL9Kbd92aMEhRMPm1gP4ysQAAA=';
+const cashPhoto = new Image();
+let cashPhotoReady = false;
+cashPhoto.onload = () => { cashPhotoReady = true; };
+cashPhoto.onerror = () => { cashPhotoReady = false; };
+cashPhoto.src = CASH_PHOTO_SRC;
+
+function drawSparkle(c, x, y, size, color, rotation) {
+  c.save();
+  c.translate(x, y);
+  c.rotate(rotation || 0);
+  c.beginPath();
+  c.moveTo(0, -size);
+  c.quadraticCurveTo(size * 0.16, -size * 0.16, size, 0);
+  c.quadraticCurveTo(size * 0.16, size * 0.16, 0, size);
+  c.quadraticCurveTo(-size * 0.16, size * 0.16, -size, 0);
+  c.quadraticCurveTo(-size * 0.16, -size * 0.16, 0, -size);
+  c.closePath();
+  c.fillStyle = color;
+  c.fill();
+  c.restore();
+}
+
+function drawPaw(c, x, y, size, rotation, color) {
+  c.save();
+  c.translate(x, y);
+  c.rotate(rotation || 0);
+  c.fillStyle = color;
+  c.beginPath();
+  c.ellipse(0, size * 0.24, size * 0.62, size * 0.52, 0, 0, Math.PI * 2);
+  c.fill();
+  const toes = [
+    [-0.53, -0.34, 0.28],
+    [-0.18, -0.62, 0.31],
+    [0.2, -0.62, 0.31],
+    [0.55, -0.32, 0.27]
+  ];
+  for (let i = 0; i < toes.length; i += 1) {
+    const toe = toes[i];
+    c.beginPath();
+    c.ellipse(toe[0] * size, toe[1] * size, toe[2] * size, toe[2] * size * 1.12, 0, 0, Math.PI * 2);
+    c.fill();
+  }
+  c.restore();
+}
+
+function drawCashPhoto(c, cx, cy, w, h, now) {
+  const time = now / 1000;
+  const x = cx - w / 2;
+  const y = cy - h / 2;
+  const radius = Math.max(7, Math.min(w, h) * 0.12);
+
+  c.save();
+  roundRect(c, x, y, w, h, radius);
+  c.clip();
+  c.drawImage(cashPhoto, x, y, w, h);
+
+  // grounded, vignetted edges so the photo sits inside the card
+  const floor = c.createLinearGradient(0, y + h * 0.55, 0, y + h);
+  floor.addColorStop(0, 'rgba(6, 26, 14, 0)');
+  floor.addColorStop(1, 'rgba(5, 20, 11, 0.5)');
+  c.fillStyle = floor;
+  c.fillRect(x, y, w, h);
+
+  const sweep = c.createLinearGradient(x, y, x + w * 0.75, y + h * 0.7);
+  sweep.addColorStop(0, 'rgba(255, 255, 255, 0.2)');
+  sweep.addColorStop(0.42, 'rgba(255, 255, 255, 0.03)');
+  sweep.addColorStop(1, 'rgba(255, 255, 255, 0)');
+  c.fillStyle = sweep;
+  c.fillRect(x, y, w, h);
+  c.restore();
+
+  // golden rim, the same gold the jackpot meter uses
+  c.strokeStyle = 'rgba(255, 211, 106, 0.85)';
+  c.lineWidth = Math.max(1.4, w * 0.013);
+  roundRect(c, x, y, w, h, radius);
+  c.stroke();
+
+  c.save();
+  c.globalAlpha = 0.55 + Math.sin(time * 2.4) * 0.45;
+  drawSparkle(c, x + w * 0.86, y + h * 0.16, Math.max(3, w * 0.035), '#ffe9a1', 0.3);
+  c.restore();
+}
+
+function drawDog(targetCtx, sym, cx, cy, scale, now, seed, animate) {
+  if (sym.style === 'cash' && cashPhotoReady) {
+    drawCashPhoto(targetCtx, cx, cy, 104 * scale, 80 * scale, now);
+    return;
+  }
+
+  const p = sym.palette;
+  const c = targetCtx;
+  const time = now / 1000;
+  const wag = animate ? Math.sin(time * 3.05 + seed * 1.9) : 0;
+  const bob = animate ? Math.sin(time * 2.25 + seed * 2.13) * 0.75 : 0;
+  const blinkCycle = animate ? (time * 0.9 + seed * 4.7) % 5.3 : 0;
+  const blinking = blinkCycle > 5.14;
+
+  c.save();
+  c.translate(cx - 60 * scale, cy - 44 * scale + bob * scale);
+  c.scale(scale, scale);
+  c.lineJoin = 'round';
+  c.lineCap = 'round';
+
+  // soft contact shadow
+  c.fillStyle = 'rgba(0, 0, 0, 0.26)';
+  c.beginPath();
+  c.ellipse(61, 81.5, 38, 4.6, 0, 0, Math.PI * 2);
+  c.fill();
+
+  // hot dog bun peeks out behind the sausage dog
+  if (sym.style === 'hotdog') {
+    const bunTop = c.createLinearGradient(0, 27, 0, 45);
+    bunTop.addColorStop(0, '#f9dda0');
+    bunTop.addColorStop(1, '#d99a4e');
+    c.fillStyle = bunTop;
+    roundRect(c, 22, 28, 80, 17, 8.5);
+    c.fill();
+    c.strokeStyle = '#8d5a23';
+    c.lineWidth = 2;
+    c.stroke();
+
+    const bunBottom = c.createLinearGradient(0, 50, 0, 67);
+    bunBottom.addColorStop(0, '#f4cc87');
+    bunBottom.addColorStop(1, '#bd7c39');
+    c.fillStyle = bunBottom;
+    roundRect(c, 20, 50, 84, 16, 8);
+    c.fill();
+    c.strokeStyle = '#8d5a23';
+    c.stroke();
+
+    c.fillStyle = 'rgba(255, 246, 205, 0.9)';
+    const seeds = [[38, 33, -0.4], [52, 37, 0.3], [68, 32, 0.1], [82, 36, -0.2], [92, 32, 0.5]];
+    for (let i = 0; i < seeds.length; i += 1) {
+      c.beginPath();
+      c.ellipse(seeds[i][0], seeds[i][1], 2.2, 1.15, seeds[i][2], 0, Math.PI * 2);
+      c.fill();
+    }
+  }
+
+  // tail (wags when idle)
+  const tipX = 110 + wag * 4;
+  const tipY = 20 + wag * 5;
+  c.beginPath();
+  c.moveTo(89, 44);
+  c.bezierCurveTo(102, 45, 106 + wag * 3, 33, tipX, tipY);
+  c.strokeStyle = p.outline;
+  c.lineWidth = 9;
+  c.stroke();
+  c.beginPath();
+  c.moveTo(89, 44);
+  c.bezierCurveTo(102, 45, 106 + wag * 3, 33, tipX, tipY);
+  c.strokeStyle = p.coatLo;
+  c.lineWidth = 6.6;
+  c.stroke();
+  c.beginPath();
+  c.moveTo(93, 43);
+  c.bezierCurveTo(103, 43, 106 + wag * 3, 33, tipX - 1, tipY + 1.5);
+  c.strokeStyle = 'rgba(255, 226, 176, 0.3)';
+  c.lineWidth = 1.7;
+  c.stroke();
+
+  // legs — far pair, then near pair, all tucked behind the body
+  function drawLeg(x, y, color, isNear) {
+    c.fillStyle = color;
+    roundRect(c, x, y, 9.4, 19.5, 4.7);
+    c.fill();
+    c.strokeStyle = p.outline;
+    c.lineWidth = 1.6;
+    c.stroke();
+    c.fillStyle = p.paw;
+    c.beginPath();
+    c.ellipse(x + 4.8, y + 19, 5.5, 3.1, 0, 0, Math.PI * 2);
+    c.fill();
+    c.strokeStyle = p.outline;
+    c.lineWidth = 1.2;
+    c.stroke();
+    if (isNear) {
+      c.strokeStyle = 'rgba(74, 40, 18, 0.4)';
+      c.lineWidth = 0.9;
+      c.beginPath();
+      c.moveTo(x + 7.4, y + 17.5);
+      c.lineTo(x + 7.4, y + 20.5);
+      c.stroke();
+    }
+  }
+
+  drawLeg(45, 54.5, p.coatLo, false);
+  drawLeg(86.5, 54.5, p.coatLo, false);
+  drawLeg(34.5, 55.5, p.coat, true);
+  drawLeg(77, 55.5, p.coat, true);
+
+  // long body
+  c.beginPath();
+  c.moveTo(31, 34);
+  c.bezierCurveTo(38, 34, 41, 38, 48, 38);
+  c.lineTo(76, 38);
+  c.bezierCurveTo(81, 31.5, 92, 31.5, 96.5, 40);
+  c.bezierCurveTo(101, 49, 97, 57.5, 88, 59);
+  c.bezierCurveTo(78, 61, 68, 60.5, 58, 60.2);
+  c.bezierCurveTo(48, 60, 39, 61, 33, 57.5);
+  c.bezierCurveTo(23, 52, 19, 44, 24, 38);
+  c.bezierCurveTo(25.5, 35.5, 28, 34, 31, 34);
+  c.closePath();
+  const bodyGrad = c.createLinearGradient(0, 33, 0, 61);
+  bodyGrad.addColorStop(0, p.coatHi);
+  bodyGrad.addColorStop(0.52, p.coat);
+  bodyGrad.addColorStop(1, p.coatLo);
+  c.fillStyle = bodyGrad;
+  c.fill();
+  c.strokeStyle = p.outline;
+  c.lineWidth = 2.3;
+  c.stroke();
+
+  // belly and chest
+  c.fillStyle = p.belly;
+  c.globalAlpha = sym.style === 'tux' ? 0.96 : 0.62;
+  c.beginPath();
+  c.ellipse(61, 55.4, 23, 4.8, 0.02, 0, Math.PI * 2);
+  c.fill();
+  c.globalAlpha = 1;
+  c.fillStyle = p.belly;
+  c.globalAlpha = sym.style === 'tux' ? 0.98 : 0.5;
+  c.beginPath();
+  c.ellipse(33, 45, 7.5, 8.6, 0.15, 0, Math.PI * 2);
+  c.fill();
+  c.globalAlpha = 1;
+
+  // glossy ridge along the back
+  c.strokeStyle = 'rgba(255, 244, 209, 0.22)';
+  c.lineWidth = 1.5;
+  c.beginPath();
+  c.moveTo(38, 39.5);
+  c.quadraticCurveTo(58, 36.5, 77, 38.6);
+  c.stroke();
+
+  // mustard squiggle for Frank
+  if (sym.style === 'hotdog') {
+    c.strokeStyle = '#ffd93d';
+    c.lineWidth = 3.4;
+    c.beginPath();
+    c.moveTo(38, 39.5);
+    c.quadraticCurveTo(44, 34.6, 50, 39.5);
+    c.quadraticCurveTo(56, 44.4, 62, 39.5);
+    c.quadraticCurveTo(68, 34.6, 74, 39.5);
+    c.quadraticCurveTo(80, 44.4, 86, 39.5);
+    c.quadraticCurveTo(90, 36.4, 93, 38.2);
+    c.stroke();
+    c.strokeStyle = 'rgba(255, 255, 255, 0.45)';
+    c.lineWidth = 1.1;
+    c.stroke();
+  }
+
+  // floppy ear (behind the head)
+  c.save();
+  c.translate(30, 33.5);
+  c.rotate(0.3);
+  c.fillStyle = p.ear;
+  c.beginPath();
+  c.ellipse(0, 0, 6.4, 12.6, 0, 0, Math.PI * 2);
+  c.fill();
+  c.strokeStyle = p.outline;
+  c.lineWidth = 1.9;
+  c.stroke();
+  c.fillStyle = p.earHi;
+  c.globalAlpha = 0.55;
+  c.beginPath();
+  c.ellipse(0.6, 1.2, 3.2, 8.2, 0, 0, Math.PI * 2);
+  c.fill();
+  c.globalAlpha = 1;
+  c.restore();
+
+  // head
+  const headGrad = c.createLinearGradient(0, 16, 0, 41);
+  headGrad.addColorStop(0, p.coatHi);
+  headGrad.addColorStop(0.62, p.coat);
+  headGrad.addColorStop(1, p.coatLo);
+  c.fillStyle = headGrad;
+  c.beginPath();
+  c.ellipse(23, 28, 15, 12.4, -0.04, 0, Math.PI * 2);
+  c.fill();
+  c.strokeStyle = p.outline;
+  c.lineWidth = 2.2;
+  c.stroke();
+
+  // muzzle + nose
+  c.fillStyle = p.muzzle;
+  roundRect(c, 0.5, 25, 22, 12, 6);
+  c.fill();
+  c.strokeStyle = p.outline;
+  c.lineWidth = 1.8;
+  c.stroke();
+  c.fillStyle = 'rgba(255, 250, 235, 0.28)';
+  roundRect(c, 4, 27, 12, 3.2, 1.6);
+  c.fill();
+
+  c.fillStyle = '#28170f';
+  c.beginPath();
+  c.ellipse(4.2, 31, 4, 3.3, -0.18, 0, Math.PI * 2);
+  c.fill();
+  c.fillStyle = 'rgba(255, 255, 255, 0.45)';
+  c.beginPath();
+  c.ellipse(2.8, 29.8, 1.15, 0.7, -0.5, 0, Math.PI * 2);
+  c.fill();
+
+  c.strokeStyle = 'rgba(40, 23, 15, 0.72)';
+  c.lineWidth = 1.3;
+  c.beginPath();
+  c.moveTo(5, 35.8);
+  c.quadraticCurveTo(10, 38.2, 15, 35.4);
+  c.stroke();
+
+  // eye (blinks now and then)
+  if (blinking) {
+    c.strokeStyle = p.outline;
+    c.lineWidth = 1.8;
+    c.beginPath();
+    c.moveTo(15.2, 25.1);
+    c.quadraticCurveTo(18, 26.1, 20.8, 25.1);
+    c.stroke();
+  } else {
+    c.fillStyle = '#24140f';
+    c.beginPath();
+    c.arc(18, 24.8, 2.55, 0, Math.PI * 2);
+    c.fill();
+    c.fillStyle = 'rgba(255, 255, 255, 0.85)';
+    c.beginPath();
+    c.arc(17.2, 23.9, 0.85, 0, Math.PI * 2);
+    c.fill();
+  }
+
+  // brow + blush
+  c.strokeStyle = 'rgba(65, 32, 15, 0.38)';
+  c.lineWidth = 1.2;
+  c.beginPath();
+  c.moveTo(14.4, 20.8);
+  c.quadraticCurveTo(17.6, 19.5, 20.6, 21);
+  c.stroke();
+  c.fillStyle = 'rgba(255, 132, 152, 0.28)';
+  c.beginPath();
+  c.ellipse(12.3, 33.7, 3.1, 2.1, 0.2, 0, Math.PI * 2);
+  c.fill();
+
+  // accessories
+  if (sym.style === 'tux') {
+    c.fillStyle = '#e8435c';
+    c.strokeStyle = 'rgba(70, 10, 24, 0.8)';
+    c.lineWidth = 1.4;
+    c.beginPath();
+    c.moveTo(32, 38);
+    c.lineTo(25, 34.5);
+    c.lineTo(26, 41.5);
+    c.closePath();
+    c.fill();
+    c.stroke();
+    c.beginPath();
+    c.moveTo(32, 38);
+    c.lineTo(39.5, 34.5);
+    c.lineTo(38.5, 41.5);
+    c.closePath();
+    c.fill();
+    c.stroke();
+    c.fillStyle = '#ff6b84';
+    c.beginPath();
+    c.arc(32, 38, 2.9, 0, Math.PI * 2);
+    c.fill();
+    c.stroke();
+
+    // little top hat
+    c.save();
+    c.translate(23.5, 16);
+    c.rotate(-0.12);
+    c.fillStyle = '#1a1824';
+    c.strokeStyle = 'rgba(8, 6, 14, 0.9)';
+    c.lineWidth = 1.6;
+    roundRect(c, -9, -15, 18, 15, 3);
+    c.fill();
+    c.stroke();
+    c.fillStyle = '#e8435c';
+    c.fillRect(-9, -4.5, 18, 3.6);
+    roundRect(c, -14.5, -1.5, 29, 4.8, 2.4);
+    c.fillStyle = '#24222f';
+    c.fill();
+    c.stroke();
+    c.restore();
+  } else if (sym.style === 'king') {
+    c.save();
+    c.translate(22, 16);
+    c.rotate(-0.06);
+    const crownGrad = c.createLinearGradient(0, -14, 0, 1);
+    crownGrad.addColorStop(0, '#fff0a0');
+    crownGrad.addColorStop(0.45, '#ffd35f');
+    crownGrad.addColorStop(1, '#d99618');
+    c.fillStyle = crownGrad;
+    c.strokeStyle = '#85560a';
+    c.lineWidth = 1.5;
+    c.beginPath();
+    c.moveTo(-12.5, 0.5);
+    c.lineTo(-13.5, -10.5);
+    c.lineTo(-6.5, -5);
+    c.lineTo(0, -14.5);
+    c.lineTo(6.5, -5);
+    c.lineTo(13.5, -10.5);
+    c.lineTo(12.5, 0.5);
+    c.closePath();
+    c.fill();
+    c.stroke();
+    c.fillStyle = '#e8435c';
+    c.beginPath();
+    c.arc(-6.8, -3.4, 1.7, 0, Math.PI * 2);
+    c.fill();
+    c.fillStyle = '#5ce6c4';
+    c.beginPath();
+    c.arc(0, -3.4, 1.9, 0, Math.PI * 2);
+    c.fill();
+    c.fillStyle = '#7f9cff';
+    c.beginPath();
+    c.arc(6.8, -3.4, 1.7, 0, Math.PI * 2);
+    c.fill();
+    c.restore();
+
+    const twinkle = 0.65 + Math.sin(time * 2.4 + seed * 3) * 0.35;
+    c.globalAlpha = twinkle;
+    drawSparkle(c, 104, 30, 4.6, '#ffe9a1', 0.2);
+    drawSparkle(c, 13, 7, 3.2, '#fff4c4', 0.6);
+    c.globalAlpha = 1;
+  } else if (sym.style === 'cash') {
+    // a banknote tucked across the back
+    c.save();
+    c.translate(71, 31.5);
+    c.rotate(-0.1);
+    const note = c.createLinearGradient(0, -8, 0, 8);
+    note.addColorStop(0, '#5fbf82');
+    note.addColorStop(1, '#2f8f5b');
+    c.fillStyle = note;
+    c.strokeStyle = '#12502f';
+    c.lineWidth = 1.4;
+    roundRect(c, -19, -8, 38, 16, 3);
+    c.fill();
+    c.stroke();
+    c.strokeStyle = 'rgba(226, 255, 226, 0.55)';
+    c.lineWidth = 0.9;
+    roundRect(c, -16, -5.6, 32, 11.2, 2);
+    c.stroke();
+    c.fillStyle = '#eafbe2';
+    c.beginPath();
+    c.arc(0, 0, 4.2, 0, Math.PI * 2);
+    c.fill();
+    c.fillStyle = '#227a49';
+    c.font = 'bold 6.4px Arial, sans-serif';
+    c.textAlign = 'center';
+    c.textBaseline = 'middle';
+    c.fillText('$', 0, 0.4);
+    c.restore();
+
+    // gold dollar tag on the collar
+    c.save();
+    c.fillStyle = '#ffd36a';
+    c.strokeStyle = '#8a5c1c';
+    c.lineWidth = 1.2;
+    c.beginPath();
+    c.arc(33, 48.5, 3.6, 0, Math.PI * 2);
+    c.fill();
+    c.stroke();
+    c.fillStyle = '#8a5c1c';
+    c.font = 'bold 4.6px Arial, sans-serif';
+    c.textAlign = 'center';
+    c.textBaseline = 'middle';
+    c.fillText('$', 33, 48.7);
+    c.restore();
+
+    const coinGlint = 0.6 + Math.sin(time * 2.2 + seed * 2) * 0.4;
+    c.globalAlpha = coinGlint;
+    drawSparkle(c, 96, 24, 3.4, '#ffe9a1', 0.3);
+    c.globalAlpha = 1;
+  } else if (sym.style === 'luke') {
+    // little red bandana
+    c.save();
+    c.translate(35, 37.5);
+    c.rotate(0.08);
+    c.fillStyle = '#e8435c';
+    c.strokeStyle = 'rgba(70, 10, 24, 0.8)';
+    c.lineWidth = 1.4;
+    c.beginPath();
+    c.moveTo(-9, -1);
+    c.lineTo(9, -1);
+    c.lineTo(0.5, 12);
+    c.closePath();
+    c.fill();
+    c.stroke();
+    c.fillStyle = 'rgba(255, 244, 220, 0.8)';
+    const bandanaDots = [[-4, 2.5], [3, 3.5], [-1, 7.5]];
+    for (let i = 0; i < bandanaDots.length; i += 1) {
+      c.beginPath();
+      c.arc(bandanaDots[i][0], bandanaDots[i][1], 0.9, 0, Math.PI * 2);
+      c.fill();
+    }
+    c.fillStyle = '#ff6b84';
+    c.beginPath();
+    c.arc(0, -1.5, 2.4, 0, Math.PI * 2);
+    c.fill();
+    c.strokeStyle = 'rgba(70, 10, 24, 0.8)';
+    c.lineWidth = 1.1;
+    c.stroke();
+    c.restore();
+  } else if (sym.style === 'pickle') {
+    c.fillStyle = 'rgba(54, 99, 38, 0.75)';
+    const bumps = [[43, 42.5, 1.5], [54, 40.5, 1.2], [66, 47, 1.45], [78, 42, 1.3], [89, 48, 1.5], [58, 51, 1.1]];
+    for (let i = 0; i < bumps.length; i += 1) {
+      c.beginPath();
+      c.arc(bumps[i][0], bumps[i][1], bumps[i][2], 0, Math.PI * 2);
+      c.fill();
+    }
+    c.strokeStyle = '#3f6b2c';
+    c.lineWidth = 1.8;
+    c.beginPath();
+    c.moveTo(23, 16.5);
+    c.quadraticCurveTo(21, 11.5, 18, 9);
+    c.stroke();
+    c.fillStyle = '#74b84f';
+    c.beginPath();
+    c.ellipse(15.5, 8, 4.4, 2.3, -0.55, 0, Math.PI * 2);
+    c.fill();
+    c.strokeStyle = 'rgba(30, 60, 20, 0.6)';
+    c.lineWidth = 0.9;
+    c.stroke();
+  } else {
+    // classic Pepper: bright collar and a brass tag
+    c.save();
+    c.translate(34, 38.5);
+    c.rotate(0.2);
+    c.fillStyle = '#e8435c';
+    c.strokeStyle = 'rgba(70, 10, 24, 0.75)';
+    c.lineWidth = 1.3;
+    roundRect(c, -3, -7.5, 6, 15, 3);
+    c.fill();
+    c.stroke();
+    c.fillStyle = '#ffd36a';
+    c.beginPath();
+    c.arc(1.5, 9.5, 2.8, 0, Math.PI * 2);
+    c.fill();
+    c.stroke();
+    c.fillStyle = 'rgba(255, 255, 255, 0.6)';
+    c.beginPath();
+    c.arc(0.7, 8.7, 0.8, 0, Math.PI * 2);
+    c.fill();
+    c.restore();
+
+    c.fillStyle = 'rgba(255, 236, 197, 0.32)';
+    c.beginPath();
+    c.ellipse(69, 44.5, 10, 5.2, 0.1, 0, Math.PI * 2);
+    c.fill();
+  }
+
+  c.restore();
+}
+
+/* ------------------------------ card art ------------------------------- */
+
+function drawCard(targetCtx, sym, x, y, w, h, opts) {
+  const c = targetCtx;
+  const now = opts.now || 0;
+  const seed = opts.seed || 0;
+  const scale = opts.scale || 1;
+  const cx = x + w / 2;
+  const cy = y + h / 2;
+
+  c.save();
+  if (scale !== 1) {
+    c.translate(cx, cy);
+    c.scale(scale, scale);
+    c.translate(-cx, -cy);
+  }
+
+  const bg = c.createLinearGradient(x, y, x + w, y + h);
+  bg.addColorStop(0, sym.card[0]);
+  bg.addColorStop(1, sym.card[1]);
+  roundRect(c, x, y, w, h, 17);
+  c.fillStyle = bg;
+  c.fill();
+
+  const halo = c.createRadialGradient(cx, y + h * 0.3, 2, cx, y + h * 0.3, w * 0.68);
+  halo.addColorStop(0, sym.glow);
+  halo.addColorStop(1, 'rgba(0, 0, 0, 0)');
+  c.fillStyle = halo;
+  c.fill();
+
+  // glass highlight
+  const gloss = c.createLinearGradient(0, y, 0, y + h * 0.5);
+  gloss.addColorStop(0, 'rgba(255, 255, 255, 0.10)');
+  gloss.addColorStop(1, 'rgba(255, 255, 255, 0)');
+  roundRect(c, x + 1.5, y + 1.5, w - 3, h * 0.48, 15);
+  c.fillStyle = gloss;
+  c.fill();
+
+  c.strokeStyle = 'rgba(255, 255, 255, 0.09)';
+  c.lineWidth = 1.4;
+  roundRect(c, x + 0.7, y + 0.7, w - 1.4, h - 1.4, 16.3);
+  c.stroke();
+
+  c.save();
+  c.globalAlpha = 0.16;
+  drawPaw(c, x + w - 28, y + h - 23, 10, -0.35, sym.accent);
+  c.restore();
+
+  const dogScale = Math.min((w * 0.86) / 120, (h * 0.94) / 88);
+  drawDog(c, sym, cx, y + h * 0.545, dogScale, now, seed, opts.animate !== false);
+
+  // tiny accent ticks in the upper corners
+  c.strokeStyle = sym.accent;
+  c.globalAlpha = 0.5;
+  c.lineWidth = 1.6;
+  c.beginPath();
+  c.moveTo(x + 13, y + 13);
+  c.lineTo(x + 22, y + 13);
+  c.moveTo(x + 13, y + 13);
+  c.lineTo(x + 13, y + 22);
+  c.stroke();
+  c.globalAlpha = 0.22;
+  c.beginPath();
+  c.moveTo(x + w - 13, y + h - 13);
+  c.lineTo(x + w - 22, y + h - 13);
+  c.moveTo(x + w - 13, y + h - 13);
+  c.lineTo(x + w - 13, y + h - 22);
+  c.stroke();
+  c.globalAlpha = 1;
+
+  c.restore();
+}
+
+/* ----------------------------- board art ------------------------------- */
+
+function drawBoard(now) {
+  ctx.clearRect(0, 0, CW, CH);
+
+  const board = ctx.createLinearGradient(0, 0, CW, CH);
+  board.addColorStop(0, '#1c1033');
+  board.addColorStop(0.48, '#0e081e');
+  board.addColorStop(1, '#150a26');
+  roundRect(ctx, 8, 8, CW - 16, CH - 16, 30);
+  ctx.fillStyle = board;
+  ctx.fill();
+
+  const warm = ctx.createRadialGradient(CW * 0.5, -40, 20, CW * 0.5, -40, 440);
+  warm.addColorStop(0, 'rgba(255, 174, 74, 0.14)');
+  warm.addColorStop(1, 'rgba(255, 174, 74, 0)');
+  ctx.fillStyle = warm;
+  ctx.fill();
+
+  const cool = ctx.createRadialGradient(CW * 0.06, CH * 0.9, 20, CW * 0.06, CH * 0.9, 360);
+  cool.addColorStop(0, 'rgba(92, 230, 196, 0.08)');
+  cool.addColorStop(1, 'rgba(92, 230, 196, 0)');
+  ctx.fillStyle = cool;
+  ctx.fill();
+
+  ctx.strokeStyle = 'rgba(255, 211, 106, 0.16)';
+  ctx.lineWidth = 1.4;
+  roundRect(ctx, 8.8, 8.8, CW - 17.6, CH - 17.6, 29.2);
+  ctx.stroke();
+
+  // cabinet screws
+  const screws = [[22, 22], [CW - 22, 22], [22, CH - 22], [CW - 22, CH - 22]];
+  for (let i = 0; i < screws.length; i += 1) {
+    const sx = screws[i][0];
+    const sy = screws[i][1];
+    const sg = ctx.createRadialGradient(sx - 1, sy - 1, 0, sx, sy, 4.5);
+    sg.addColorStop(0, 'rgba(255, 236, 178, 0.55)');
+    sg.addColorStop(0.55, 'rgba(180, 128, 44, 0.34)');
+    sg.addColorStop(1, 'rgba(75, 46, 10, 0.2)');
+    ctx.fillStyle = sg;
+    ctx.beginPath();
+    ctx.arc(sx, sy, 3.1, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(255, 211, 106, 0.16)';
+    ctx.lineWidth = 0.9;
+    ctx.beginPath();
+    ctx.moveTo(sx - 1.6, sy);
+    ctx.lineTo(sx + 1.6, sy);
+    ctx.stroke();
+  }
+
+  for (let i = 0; i < reels.length; i += 1) {
+    drawReelColumn(i, now);
+  }
+}
+
+function drawReelColumn(index, now) {
+  const reel = reels[index];
+  const x = GRID_LEFT + index * PITCH_X;
+
+  roundRect(ctx, x - 5, GRID_TOP - 5, CARD_W + 10, GRID_H + 10, 20);
+  ctx.fillStyle = '#0a0614';
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+  ctx.lineWidth = 1.2;
+  ctx.stroke();
+
+  const innerShade = ctx.createLinearGradient(0, GRID_TOP - 5, 0, GRID_TOP + 28);
+  innerShade.addColorStop(0, 'rgba(0, 0, 0, 0.5)');
+  innerShade.addColorStop(1, 'rgba(0, 0, 0, 0)');
+  ctx.fillStyle = innerShade;
+  roundRect(ctx, x - 5, GRID_TOP - 5, CARD_W + 10, 34, 18);
+  ctx.fill();
+
+  ctx.save();
+  ctx.beginPath();
+  ctx.rect(x, GRID_TOP, CARD_W, GRID_H);
+  ctx.clip();
+
+  const frac = reel.scroll % PITCH_Y;
+  const base = Math.floor(reel.scroll / PITCH_Y);
+  const active = state.wins.length > 0 && reel.phase === 'landed';
+  const elapsed = (now - state.winStart) / 1000;
+
+  for (let k = -1; k <= 3; k += 1) {
+    const y = GRID_TOP + k * PITCH_Y - frac;
+    if (y + CARD_H < GRID_TOP - 2 || y > GRID_TOP + GRID_H + 2) continue;
+
+    const sym = symbolAt(reel, base + k);
+    let cardScale = 1;
+    if (active && k >= 0 && k <= 2) {
+      const marked = state.winCells.has(index + ',' + k);
+      if (marked) {
+        cardScale = 1 + Math.exp(-elapsed * 3.4) * Math.sin(elapsed * 16 + index) * 0.055;
+      }
+    }
+    drawCard(ctx, sym, x, y, CARD_W, CARD_H, {
+      now,
+      seed: index * 3.7 + (base + k) * 0.63,
+      animate: !state.spinning && !prefersReducedMotion,
+      scale: cardScale
+    });
+  }
+
+  // motion smear while the reel is really moving
+  const speed = Math.abs(reel.renderSpeed || 0);
+  if (speed > 900) {
+    ctx.globalAlpha = clamp((speed - 900) / 2600, 0, 0.32);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+    const streakCount = 7;
+    for (let s = 0; s < streakCount; s += 1) {
+      const sy = GRID_TOP + ((now * 0.7 + s * 83 + index * 37) % GRID_H);
+      const sh = 18 + ((s * 13) % 38);
+      ctx.fillRect(x + 8, sy, CARD_W - 16, sh);
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  const topFade = ctx.createLinearGradient(0, GRID_TOP, 0, GRID_TOP + 30);
+  topFade.addColorStop(0, 'rgba(8, 4, 16, 0.92)');
+  topFade.addColorStop(1, 'rgba(8, 4, 16, 0)');
+  ctx.fillStyle = topFade;
+  ctx.fillRect(x, GRID_TOP, CARD_W, 30);
+
+  const bottomFade = ctx.createLinearGradient(0, GRID_TOP + GRID_H - 32, 0, GRID_TOP + GRID_H);
+  bottomFade.addColorStop(0, 'rgba(8, 4, 16, 0)');
+  bottomFade.addColorStop(1, 'rgba(8, 4, 16, 0.92)');
+  ctx.fillStyle = bottomFade;
+  ctx.fillRect(x, GRID_TOP + GRID_H - 32, CARD_W, 32);
+
+  ctx.restore();
+
+  // settle flash
+  const sinceLand = now - (reel.landAt || -9999);
+  if (sinceLand >= 0 && sinceLand < 420) {
+    const a = (1 - sinceLand / 420) * 0.5;
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255, 222, 128, ' + a.toFixed(3) + ')';
+    ctx.lineWidth = 2;
+    ctx.shadowColor = 'rgba(255, 211, 106, 0.7)';
+    ctx.shadowBlur = 18;
+    roundRect(ctx, x - 3, GRID_TOP - 3, CARD_W + 6, GRID_H + 6, 19);
+    ctx.stroke();
+    ctx.restore();
+  }
+}
+
+function centerOfCell(col, row) {
+  return {
+    x: GRID_LEFT + col * PITCH_X + CARD_W / 2,
+    y: GRID_TOP + row * PITCH_Y + CARD_H / 2
+  };
+}
+
+function pointOnPolyline(points, progress) {
+  let total = 0;
+  const lengths = [];
+  for (let i = 0; i < points.length - 1; i += 1) {
+    const dx = points[i + 1].x - points[i].x;
+    const dy = points[i + 1].y - points[i].y;
+    const len = Math.hypot(dx, dy);
+    lengths.push(len);
+    total += len;
+  }
+  let target = total * clamp(progress, 0, 1);
+  for (let i = 0; i < lengths.length; i += 1) {
+    if (target <= lengths[i]) {
+      const t = lengths[i] === 0 ? 0 : target / lengths[i];
+      return {
+        x: points[i].x + (points[i + 1].x - points[i].x) * t,
+        y: points[i].y + (points[i + 1].y - points[i].y) * t
+      };
+    }
+    target -= lengths[i];
+  }
+  return points[points.length - 1];
+}
+
+function drawWinOverlay(now) {
+  if (!state.wins.length) return;
+
+  const fade = clamp((state.winUntil - now) / 700, 0, 1);
+  if (fade <= 0) return;
+
+  for (let w = 0; w < state.wins.length; w += 1) {
+    const win = state.wins[w];
+    const color = win.color;
+
+    for (let i = 0; i < win.cells.length; i += 1) {
+      const cell = win.cells[i];
+      const x = GRID_LEFT + cell.col * PITCH_X;
+      const y = GRID_TOP + cell.row * PITCH_Y;
+      ctx.save();
+      ctx.fillStyle = color;
+      ctx.globalAlpha = 0.055 * fade;
+      roundRect(ctx, x + 2, y + 2, CARD_W - 4, CARD_H - 4, 16);
+      ctx.fill();
+      ctx.globalAlpha = 0.82 * fade;
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 2;
+      ctx.shadowColor = color;
+      ctx.shadowBlur = 20;
+      roundRect(ctx, x + 2, y + 2, CARD_W - 4, CARD_H - 4, 16);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    const pts = win.cells.map((cell) => centerOfCell(cell.col, cell.row));
+    const pulse = 0.72 + Math.sin(now * 0.005 + w) * 0.18;
+
+    ctx.save();
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(pts[0].x, pts[0].y);
+    for (let i = 1; i < pts.length; i += 1) {
+      ctx.lineTo(pts[i].x, pts[i].y);
+    }
+    ctx.strokeStyle = color;
+    ctx.globalAlpha = 0.16 * fade;
+    ctx.lineWidth = 13;
+    ctx.shadowColor = color;
+    ctx.shadowBlur = 26;
+    ctx.stroke();
+
+    ctx.globalAlpha = 0.9 * fade;
+    ctx.lineWidth = 3.4;
+    ctx.stroke();
+
+    ctx.setLineDash([1, 13]);
+    ctx.lineDashOffset = -now * 0.025;
+    ctx.globalAlpha = 0.9 * fade;
+    ctx.lineWidth = 3.4;
+    ctx.strokeStyle = '#fff9e6';
+    ctx.stroke();
+    ctx.restore();
+
+    const spark = pointOnPolyline(pts, ((now * 0.00042 + w * 0.21) % 1));
+    ctx.save();
+    const sparkGlow = ctx.createRadialGradient(spark.x, spark.y, 0, spark.x, spark.y, 14);
+    sparkGlow.addColorStop(0, 'rgba(255, 255, 240, 0.95)');
+    sparkGlow.addColorStop(0.4, color);
+    sparkGlow.addColorStop(1, 'rgba(255, 255, 255, 0)');
+    ctx.globalAlpha = pulse * fade;
+    ctx.fillStyle = sparkGlow;
+    ctx.beginPath();
+    ctx.arc(spark.x, spark.y, 14, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+/* ------------------------------ confetti ------------------------------- */
+
+const CONFETTI_COLORS = ['#ffd36a', '#ff709f', '#5ce6c4', '#c8a6ff', '#9ee37d', '#fff4d6'];
+
+function spawnConfetti(totalWin) {
+  const amount = clamp(Math.round(26 + (totalWin / Math.max(getBet(), 1)) * 9), 26, 110);
+  const colors = CONFETTI_COLORS;
+  for (let i = 0; i < amount; i += 1) {
+    const fromLeft = Math.random() < 0.5;
+    state.confetti.push({
+      x: fromLeft ? 40 + Math.random() * 260 : CW - 300 + Math.random() * 260,
+      y: -20 - Math.random() * 140,
+      vx: (Math.random() - 0.5) * 170,
+      vy: 110 + Math.random() * 210,
+      w: 4 + Math.random() * 6,
+      h: 7 + Math.random() * 9,
+      rot: Math.random() * Math.PI * 2,
+      vr: (Math.random() - 0.5) * 11,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      life: 2.4 + Math.random() * 1.6,
+      age: 0,
+      shape: Math.random() < 0.25 ? 'circle' : 'rect'
+    });
+  }
+}
+
+function updateConfetti(dt) {
+  const list = state.confetti;
+  for (let i = list.length - 1; i >= 0; i -= 1) {
+    const p = list[i];
+    p.age += dt;
+    if (p.age > p.life || p.y > CH + 60) {
+      list.splice(i, 1);
+      continue;
+    }
+    p.vy += 320 * dt;
+    p.vx *= 1 - 0.4 * dt;
+    p.x += p.vx * dt;
+    p.y += p.vy * dt;
+    p.rot += p.vr * dt;
+  }
+}
+
+function drawConfetti() {
+  if (!state.confetti.length) return;
+  ctx.save();
+  for (let i = 0; i < state.confetti.length; i += 1) {
+    const p = state.confetti[i];
+    const fade = clamp((p.life - p.age) / 0.5, 0, 1);
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rot);
+    ctx.globalAlpha = fade * 0.95;
+    ctx.fillStyle = p.color;
+    if (p.shape === 'circle') {
+      ctx.beginPath();
+      ctx.arc(0, 0, p.w * 0.55, 0, Math.PI * 2);
+      ctx.fill();
+    } else {
+      ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+    }
+    ctx.restore();
+  }
+  ctx.restore();
+}
+
+/* ------------------------------- mascot -------------------------------- */
+
+function drawMascot(now) {
+  mctx.clearRect(0, 0, 98, 72);
+  const halo = mctx.createRadialGradient(49, 40, 2, 49, 40, 46);
+  halo.addColorStop(0, 'rgba(255, 211, 106, 0.13)');
+  halo.addColorStop(1, 'rgba(255, 211, 106, 0)');
+  mctx.fillStyle = halo;
+  mctx.fillRect(0, 0, 98, 72);
+  const cash = SYMBOL_BY_ID.get('cash');
+  const bounce = prefersReducedMotion ? 0 : Math.sin(now / 900) * 1.2;
+  drawDog(mctx, cash, 49, 38 + bounce, 0.61, now, 3.1, !prefersReducedMotion);
+  mctx.globalAlpha = 0.9;
+  drawSparkle(mctx, 84, 18, 3.3, '#ffe9a1', now / 1600);
+  drawSparkle(mctx, 14, 26, 2.1, '#fff4c4', -now / 2100);
+  mctx.globalAlpha = 1;
+}
+
+/* ------------------------------- audio --------------------------------- */
+
+const sound = {
+  ac: null,
+  master: null,
+  noiseBuffer: null,
+  muted: false,
+  init() {
+    if (this.ac) {
+      if (this.ac.state === 'suspended') this.ac.resume();
+      return;
+    }
+    const AudioCtor = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtor) return;
+    try {
+      this.ac = new AudioCtor();
+      this.master = this.ac.createGain();
+      this.master.gain.value = this.muted ? 0 : 0.55;
+      this.master.connect(this.ac.destination);
+      const length = Math.floor(this.ac.sampleRate * 1.2);
+      this.noiseBuffer = this.ac.createBuffer(1, length, this.ac.sampleRate);
+      const data = this.noiseBuffer.getChannelData(0);
+      for (let i = 0; i < length; i += 1) {
+        data[i] = Math.random() * 2 - 1;
+      }
+    } catch (err) {
+      this.ac = null;
+    }
+  },
+  tone(freq, duration, type, volume, delay, slideTo) {
+    if (!this.ac || this.muted) return;
+    const t0 = this.ac.currentTime + (delay || 0);
+    const osc = this.ac.createOscillator();
+    const gain = this.ac.createGain();
+    osc.type = type || 'triangle';
+    osc.frequency.setValueAtTime(freq, t0);
+    if (slideTo) osc.frequency.exponentialRampToValueAtTime(Math.max(20, slideTo), t0 + duration);
+    gain.gain.setValueAtTime(0.0001, t0);
+    gain.gain.exponentialRampToValueAtTime(Math.max(0.0002, volume || 0.07), t0 + 0.012);
+    gain.gain.exponentialRampToValueAtTime(0.0001, t0 + duration);
+    osc.connect(gain);
+    gain.connect(this.master);
+    osc.start(t0);
+    osc.stop(t0 + duration + 0.04);
+  },
+  whoosh(duration, frequency, volume) {
+    if (!this.ac || this.muted || !this.noiseBuffer) return;
+    const t0 = this.ac.currentTime;
+    const source = this.ac.createBufferSource();
+    const filter = this.ac.createBiquadFilter();
+    const gain = this.ac.createGain();
+    source.buffer = this.noiseBuffer;
+    filter.type = 'bandpass';
+    filter.frequency.setValueAtTime(frequency || 900, t0);
+    filter.frequency.exponentialRampToValueAtTime(Math.max(120, (frequency || 900) * 0.55), t0 + duration);
+    filter.Q.value = 0.9;
+    gain.gain.setValueAtTime(0.0001, t0);
+    gain.gain.exponentialRampToValueAtTime(volume || 0.05, t0 + 0.06);
+    gain.gain.exponentialRampToValueAtTime(0.0001, t0 + duration);
+    source.connect(filter);
+    filter.connect(gain);
+    gain.connect(this.master);
+    source.start(t0);
+    source.stop(t0 + duration + 0.02);
+  },
+  click() {
+    this.init();
+    this.tone(620, 0.055, 'square', 0.028, 0, 520);
+  },
+  spin() {
+    this.whoosh(1.5, 1250, 0.05);
+    this.tone(120, 0.9, 'sawtooth', 0.018, 0, 62);
+  },
+  stop(index) {
+    this.tone(165 - index * 12, 0.16, 'sine', 0.16, 0, 48);
+    this.whoosh(0.07, 2600, 0.028);
+    this.tone(320 - index * 18, 0.045, 'square', 0.02, 0.012, 210);
+  },
+  win(level) {
+    const notes = level >= 10
+      ? [523.25, 659.25, 783.99, 1046.5, 1318.5, 1567.98]
+      : level >= 4
+        ? [523.25, 659.25, 783.99, 1046.5]
+        : [523.25, 659.25, 783.99];
+    for (let i = 0; i < notes.length; i += 1) {
+      this.tone(notes[i], 0.42, 'triangle', 0.065, i * 0.085);
+      this.tone(notes[i] / 2, 0.5, 'sine', 0.022, i * 0.085);
+    }
+    if (level >= 6) {
+      this.tone(1567.98, 0.7, 'sine', 0.045, 0.5);
+      this.tone(2093, 0.55, 'sine', 0.03, 0.62);
+    }
+  },
+  jackpot() {
+    this.whoosh(1.2, 2100, 0.06);
+    const notes = [523.25, 659.25, 783.99, 1046.5, 1318.51, 1567.98, 2093, 2637.02];
+    for (let i = 0; i < notes.length; i += 1) {
+      this.tone(notes[i], 0.5, 'triangle', 0.065, i * 0.095);
+      this.tone(notes[i] / 2, 0.55, 'sine', 0.024, i * 0.095);
+    }
+    this.tone(1046.5, 1.3, 'sine', 0.05, 0.82);
+    this.tone(1567.98, 1.1, 'sine', 0.035, 0.96);
+  },
+  lose() {
+    this.tone(196, 0.15, 'sine', 0.032, 0, 172);
+    this.tone(146.83, 0.24, 'triangle', 0.026, 0.13, 128);
+  },
+  setMuted(value) {
+    this.muted = value;
+    if (this.master && this.ac) {
+      this.master.gain.cancelScheduledValues(this.ac.currentTime);
+      this.master.gain.setTargetAtTime(value ? 0 : 0.55, this.ac.currentTime, 0.02);
+    }
+    try {
+      localStorage.setItem('pickleSlotsMuted', value ? '1' : '0');
+    } catch (err) {
+      /* Private browsing can block storage; sound still works for this visit. */
+    }
+    updateSoundButton();
+  }
+};
+
+try {
+  sound.muted = localStorage.getItem('pickleSlotsMuted') === '1';
+} catch (err) {
+  sound.muted = false;
+}
+
+function updateSoundButton() {
+  dom.sound.setAttribute('aria-pressed', sound.muted ? 'true' : 'false');
+  dom.sound.setAttribute('aria-label', sound.muted ? 'Unmute sound' : 'Mute sound');
+  dom.sound.title = sound.muted ? 'Unmute sound (M)' : 'Mute sound (M)';
+}
+
+/* -------------------------------- reels -------------------------------- */
+
+const reels = [0, 1, 2].map((index) => ({
+  index,
+  strip: makeStrip(),
+  scroll: 0,
+  speed: 0,
+  renderSpeed: 0,
+  phase: 'idle',
+  stopAt: 0,
+  stopFrom: 0,
+  stopTo: 0,
+  stopT0: 0,
+  stopDur: 0,
+  landAt: 0,
+  targetStep: 0,
+  finals: null
+}));
+
+const SPIN_SPEEDS = [2350, 2435, 2520];
+const STOP_DELAYS = [640, 920, 1200];
+
+function beginReelStop(reel, now) {
+  const currentStep = Math.ceil(reel.scroll / PITCH_Y);
+  const targetStep = currentStep + 4 + secureInt(2);
+  const finals = [pickSymbol(), pickSymbol(), pickSymbol()];
+  for (let row = 0; row < 3; row += 1) {
+    setStripSymbol(reel, targetStep + row, finals[row]);
+  }
+
+  const targetScroll = targetStep * PITCH_Y;
+  const distance = targetScroll - reel.scroll;
+  reel.targetStep = targetStep;
+  reel.finals = finals;
+  reel.stopFrom = reel.scroll;
+  reel.stopTo = targetScroll;
+  reel.stopT0 = now;
+  reel.stopDur = clamp((distance / reel.speed) * 3 * 1000, 560, 1320);
+  reel.phase = 'stopping';
+}
+
+function updateReels(now, dt) {
+  let allLanded = true;
+
+  for (let i = 0; i < reels.length; i += 1) {
+    const reel = reels[i];
+
+    if (reel.phase === 'spinning') {
+      reel.scroll += reel.speed * dt;
+      reel.renderSpeed = reel.speed;
+      if (now >= reel.stopAt) {
+        beginReelStop(reel, now);
+      }
+    }
+
+    if (reel.phase === 'stopping') {
+      const t = clamp((now - reel.stopT0) / reel.stopDur, 0, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const previous = reel.scroll;
+      reel.scroll = reel.stopFrom + (reel.stopTo - reel.stopFrom) * eased;
+      reel.renderSpeed = dt > 0 ? (reel.scroll - previous) / dt : 0;
+      if (t >= 1) {
+        reel.scroll = reel.stopTo;
+        reel.renderSpeed = 0;
+        reel.phase = 'landed';
+        reel.landAt = now;
+        sound.stop(i);
+      }
+    }
+
+    if (reel.phase !== 'landed') allLanded = false;
+  }
+
+  if (state.spinning && allLanded) {
+    resolveSpin(now);
+  }
+}
+
+/* ----------------------------- game actions ---------------------------- */
+
+function setStatus(text, tone) {
+  dom.status.textContent = text;
+  dom.status.className = 'status' + (tone ? ' ' + tone : '');
+}
+
+let toastTimer = 0;
+function showToast(text) {
+  dom.toast.textContent = text;
+  dom.toast.classList.add('show');
+  window.clearTimeout(toastTimer);
+  toastTimer = window.setTimeout(() => {
+    dom.toast.classList.remove('show');
+  }, 2100);
+}
+
+function bumpValue(element) {
+  element.classList.remove('bump');
+  void element.offsetWidth;
+  element.classList.add('bump');
+}
+
+function updateHud(bump) {
+  dom.balance.textContent = formatNumber(state.balance);
+  dom.lastWin.textContent = formatNumber(state.lastWin);
+  dom.betValue.textContent = formatNumber(getBet());
+  dom.betReadout.textContent = formatNumber(getBet());
+  dom.lineBet.textContent = getLineBet() + ' per line';
+  dom.jackpot.textContent = formatNumber(Math.floor(state.jackpot));
+
+  dom.statSpins.textContent = formatNumber(state.stats.spins);
+  dom.statWagered.textContent = formatNumber(state.stats.wagered);
+  dom.statBest.textContent = formatNumber(state.stats.bestWin);
+  dom.statHits.textContent = state.stats.spins > 0
+    ? Math.round((state.stats.hits / state.stats.spins) * 100) + '%'
+    : '—';
+
+  if (bump) {
+    bumpValue(dom.balance);
+    bumpValue(dom.lastWin);
+  }
+
+  const cannotAfford = state.balance < getBet();
+  const hasAuto = state.autoRemaining > 0;
+  dom.spin.disabled = state.spinning || cannotAfford;
+  dom.betUp.disabled = state.spinning || state.betIndex >= BET_STEPS.length - 1;
+  dom.betDown.disabled = state.spinning || state.betIndex <= 0;
+  dom.refill.hidden = state.spinning || !cannotAfford;
+  dom.auto.disabled = !hasAuto && (state.spinning || cannotAfford);
+  dom.auto.setAttribute('aria-pressed', hasAuto ? 'true' : 'false');
+  dom.auto.setAttribute('aria-label', hasAuto
+    ? 'Stop autoplay, ' + state.autoRemaining + ' spins left'
+    : 'Start autoplay, ' + AUTO_SPINS + ' spins');
+  dom.autoLabel.textContent = hasAuto ? 'Stop · ' + state.autoRemaining : 'Auto ×' + AUTO_SPINS;
+  dom.auto.title = hasAuto ? 'Stop autoplay' : 'Autoplay ' + AUTO_SPINS + ' spins (A)';
+
+  if (state.spinning) {
+    dom.spinLabel.textContent = 'Rolling';
+    dom.spin.classList.add('spinning');
+    dom.spin.setAttribute('aria-busy', 'true');
+  } else {
+    dom.spinLabel.textContent = 'Spin';
+    dom.spin.classList.remove('spinning');
+    dom.spin.removeAttribute('aria-busy');
+  }
+}
+
+function clearBanner() {
+  window.clearTimeout(state.bannerTimer);
+  dom.banner.classList.remove('show', 'hide', 'big', 'mega', 'jackpot');
+}
+
+function hideBanner() {
+  window.clearTimeout(state.bannerTimer);
+  dom.banner.classList.remove('show');
+  dom.banner.classList.add('hide');
+}
+
+function showBanner(total, jackpot) {
+  window.clearTimeout(state.bannerTimer);
+  const ratio = total / Math.max(1, getBet());
+  dom.banner.classList.remove('show', 'hide', 'big', 'mega', 'jackpot');
+  if (jackpot) {
+    dom.banner.classList.add('jackpot', 'mega');
+    dom.bannerLabel.textContent = 'Jackpot';
+  } else if (ratio >= 15) {
+    dom.banner.classList.add('mega');
+    dom.bannerLabel.textContent = 'Mega Win';
+  } else if (ratio >= 6) {
+    dom.banner.classList.add('big');
+    dom.bannerLabel.textContent = 'Big Win';
+  } else {
+    dom.bannerLabel.textContent = 'Winner';
+  }
+  dom.bannerAmount.textContent = '+' + formatNumber(total);
+  dom.bannerSub.textContent = total === 1 ? 'credit' : 'credits';
+  void dom.banner.offsetWidth;
+  dom.banner.classList.add('show');
+  state.bannerTimer = window.setTimeout(() => {
+    hideBanner();
+  }, jackpot ? 4200 : 2700);
+}
+
+function changeBet(direction) {
+  if (state.spinning) return;
+  const next = clamp(state.betIndex + direction, 0, BET_STEPS.length - 1);
+  if (next === state.betIndex) {
+    showToast(direction > 0 ? 'That is the maximum bet.' : 'That is the minimum bet.');
+    return;
+  }
+  if (state.autoRemaining > 0) cancelAuto();
+  state.betIndex = next;
+  sound.click();
+  saveGame();
+  updateHud(false);
+  setStatus('Bet set to ' + getBet() + ' credits — ' + getLineBet() + ' per line.');
+  if (state.balance < getBet()) {
+    showToast('That bet is above your balance. Top up or lower the bet.');
+  }
+}
+
+function refill() {
+  if (state.spinning) return;
+  state.balance += 500;
+  saveGame();
+  updateHud(true);
+  sound.click();
+  showToast('+500 credits. The dogs are pleased.');
+  setStatus('Credits topped up. Back to the races!', 'good');
+}
+
+function cancelAuto() {
+  if (state.autoTimer) {
+    window.clearTimeout(state.autoTimer);
+    state.autoTimer = 0;
+  }
+  state.autoRemaining = 0;
+  state.autoSpin = false;
+  updateHud(false);
+}
+
+/* Autoplay: ten spins, each queued after the previous one settles. */
+function stopAutoWithMessage(text) {
+  if (state.autoRemaining <= 0) return;
+  cancelAuto();
+  setStatus(text, 'alert');
+  showToast(text);
+}
+
+function startAuto() {
+  sound.init();
+
+  if (state.autoRemaining > 0) {
+    cancelAuto();
+    sound.click();
+    showToast('Autoplay stopped.');
+    setStatus('Autoplay stopped. Your call, boss.');
+    return;
+  }
+
+  if (state.spinning) {
+    showToast('Let this spin finish first.');
+    return;
+  }
+
+  if (state.balance < getBet()) {
+    updateHud(false);
+    showToast('Not enough credits for autoplay. Tap +500.');
+    setStatus('Out of credits. Top up or lower your bet.', 'alert');
+    return;
+  }
+
+  state.autoRemaining = AUTO_SPINS;
+  updateHud(false);
+  sound.click();
+  showToast('Autoplay on — ' + AUTO_SPINS + ' spins.');
+  spin(true);
+}
+
+function scheduleAuto(delay) {
+  if (state.autoRemaining <= 0) return;
+  if (state.autoTimer) window.clearTimeout(state.autoTimer);
+  state.autoTimer = window.setTimeout(() => {
+    state.autoTimer = 0;
+    if (state.spinning || state.autoRemaining <= 0) return;
+    if (document.hidden) {
+      cancelAuto();
+      return;
+    }
+    if (state.balance < getBet()) {
+      stopAutoWithMessage('Autoplay stopped — out of credits.');
+      return;
+    }
+    spin(true);
+  }, delay || AUTO_DELAY);
+}
+
+function spin(fromAuto) {
+  if (state.spinning) return;
+
+  if (fromAuto) {
+    if (state.autoRemaining <= 0) return;
+  } else if (state.autoRemaining > 0) {
+    cancelAuto();
+  }
+
+  sound.init();
+  const bet = getBet();
+  if (state.balance < bet) {
+    if (fromAuto) stopAutoWithMessage('Autoplay stopped — out of credits.');
+    updateHud(false);
+    showToast('Not enough credits. Tap +500 to top up.');
+    setStatus('Out of credits. Top up or lower your bet.', 'alert');
+    return;
+  }
+
+  state.autoSpin = !!fromAuto;
+  state.balance -= bet;
+  state.jackpot += bet * JACKPOT_RATE;
+  state.stats.spins += 1;
+  state.stats.wagered += bet;
+  state.spinning = true;
+  state.wins = [];
+  state.winCells.clear();
+  state.confetti.length = 0;
+  clearBanner();
+
+  const now = performance.now();
+  for (let i = 0; i < reels.length; i += 1) {
+    const reel = reels[i];
+    reel.phase = 'spinning';
+    reel.speed = SPIN_SPEEDS[i];
+    reel.renderSpeed = reel.speed;
+    reel.stopAt = now + STOP_DELAYS[i];
+    reel.landAt = 0;
+  }
+
+  dom.spin.classList.add('spinning');
+  updateHud(true);
+  setStatus(state.autoSpin
+    ? 'Autoplay running — ' + state.autoRemaining + ' spins to go.'
+    : 'The dogs are off! Hold onto your leash…');
+  sound.spin();
+}
+
+function buildGrid() {
+  return reels.map((reel) => {
+    const base = Math.round(reel.scroll / PITCH_Y);
+    return [0, 1, 2].map((row) => symbolAt(reel, base + row));
+  });
+}
+
+function resolveSpin(now) {
+  state.spinning = false;
+
+  const wasAuto = state.autoSpin;
+  state.autoSpin = false;
+  if (wasAuto) state.autoRemaining = Math.max(0, state.autoRemaining - 1);
+
+  const grid = buildGrid();
+  const lineBet = getLineBet();
+  const wins = [];
+
+  for (let line = 0; line < PAYLINES.length; line += 1) {
+    const rows = PAYLINES[line].rows;
+    const symbols = rows.map((row, col) => grid[col][row]);
+    let amount = 0;
+    let kind = 0;
+
+    if (symbols[0].id === symbols[1].id && symbols[1].id === symbols[2].id) {
+      amount = lineBet * symbols[0].triple;
+      kind = 3;
+    } else if (symbols[0].id === symbols[1].id) {
+      amount = lineBet * symbols[0].pair;
+      kind = 2;
+    }
+
+    if (amount > 0) {
+      wins.push({
+        line,
+        cells: rows.map((row, col) => ({ col, row })),
+        symbols,
+        sym: symbols[0],
+        amount,
+        kind,
+        color: PAYLINES[line].color
+      });
+    }
+  }
+
+  state.wins = wins;
+  state.winCells.clear();
+
+  let total = 0;
+  for (let i = 0; i < wins.length; i += 1) {
+    const win = wins[i];
+    total += win.amount;
+    for (let c = 0; c < win.cells.length; c += 1) {
+      const cell = win.cells[c];
+      state.winCells.set(cell.col + ',' + cell.row, win.color);
+    }
+  }
+
+  const jackpotWon = grid[0][JACKPOT_LINE].id === 'cash'
+    && grid[1][JACKPOT_LINE].id === 'cash'
+    && grid[2][JACKPOT_LINE].id === 'cash';
+  let jackpotPrize = 0;
+  if (jackpotWon) {
+    // Three Cash on the middle line pay the meter on top of the line win.
+    jackpotPrize = Math.floor(state.jackpot);
+    total += jackpotPrize;
+    state.jackpot = JACKPOT_SEED;
+  }
+
+  if (total === 0) {
+    state.lastWin = 0;
+    sound.lose();
+    const quips = [
+      'No win this time. The dogs remain unimpressed.',
+      'Not a sausage. Give the reels another go.',
+      'So close you could smell the mustard. Spin again?',
+      'The dachshunds have spoken: no win. Bold of them.',
+      'No payline this spin. The pack is regrouping.'
+    ];
+    setStatus(quips[secureInt(quips.length)], '');
+    updateHud(true);
+    saveGame();
+    scheduleAuto(AUTO_DELAY);
+    return;
+  }
+
+  state.lastWin = total;
+  state.balance += total;
+  state.stats.won += total;
+  state.stats.bestWin = Math.max(state.stats.bestWin, total);
+  state.stats.hits += 1;
+  state.winStart = now;
+  state.winUntil = now + (jackpotWon ? 7000 : 4800);
+
+  spawnConfetti(total);
+  if (jackpotWon) spawnConfetti(total);
+  showBanner(total, jackpotWon);
+
+  if (jackpotWon) {
+    cancelAuto();
+    sound.jackpot();
+    setStatus('JACKPOT! Three Cash on the middle line — +' + formatNumber(total) + ' credits!', 'good');
+    showToast('JACKPOT! +' + formatNumber(jackpotPrize) + ' credits!');
+  } else {
+    sound.win(total / Math.max(1, getBet()));
+    if (wins.length === 1) {
+      const win = wins[0];
+      const label = win.kind === 3 ? 'three of a kind' : 'a pair';
+      setStatus(win.sym.name + ' ' + label + ' on line ' + (win.line + 1) + ' — +' + formatNumber(total) + ' credits!', 'good');
+    } else {
+      setStatus(wins.length + ' paylines hit! +' + formatNumber(total) + ' credits. The whole pack is howling.', 'good');
+    }
+    scheduleAuto(total / Math.max(1, getBet()) >= 6 ? AUTO_BIG_DELAY : AUTO_WIN_DELAY);
+  }
+
+  updateHud(true);
+  saveGame();
+}
+
+/* --------------------------------- ui ---------------------------------- */
+
+function buildPaytable() {
+  dom.payGrid.innerHTML = '';
+  for (let i = 0; i < PAY_ORDER.length; i += 1) {
+    const sym = SYMBOL_BY_ID.get(PAY_ORDER[i]);
+    const item = document.createElement('div');
+    item.className = 'pay-item';
+    if (sym.jackpot) {
+      item.classList.add('is-jackpot');
+      item.title = 'Three Cash on the middle line wins the Wiener Jackpot.';
+    }
+
+    const icon = document.createElement('canvas');
+    icon.width = 240;
+    icon.height = 160;
+    icon.setAttribute('aria-hidden', 'true');
+    const ic = icon.getContext('2d');
+    ic.setTransform(2, 0, 0, 2, 0, 0);
+
+    const halo = ic.createRadialGradient(60, 40, 2, 60, 40, 46);
+    halo.addColorStop(0, sym.glow);
+    halo.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    ic.fillStyle = halo;
+    ic.fillRect(0, 0, 120, 80);
+    drawDog(ic, sym, 60, 40, 0.65, 0, i * 2.17, false);
+
+    const name = document.createElement('span');
+    name.className = 'pay-name';
+    name.textContent = sym.name;
+
+    const values = document.createElement('div');
+    values.className = 'pay-values';
+    values.innerHTML = '<span><em>2</em>×' + sym.pair + '</span><span class="triple"><em>3</em>×' + sym.triple + '</span>';
+
+    item.appendChild(icon);
+    item.appendChild(name);
+    item.appendChild(values);
+    if (sym.jackpot) {
+      const note = document.createElement('span');
+      note.className = 'pay-note';
+      note.textContent = '3 middle = jackpot';
+      item.appendChild(note);
+    }
+    dom.payGrid.appendChild(item);
+  }
+}
+
+function toggleSound() {
+  sound.init();
+  const next = !sound.muted;
+  sound.setMuted(next);
+  if (!next) sound.click();
+  showToast(next ? 'Sound muted.' : 'Sound on.');
+}
+
+let resetArmedUntil = 0;
+
+function resetGame() {
+  if (state.autoTimer) {
+    window.clearTimeout(state.autoTimer);
+    state.autoTimer = 0;
+  }
+  state.autoRemaining = 0;
+  state.autoSpin = false;
+  state.balance = START_BALANCE;
+  state.betIndex = 1;
+  state.lastWin = 0;
+  state.jackpot = JACKPOT_SEED;
+  state.stats = emptyStats();
+  state.wins = [];
+  state.winCells.clear();
+  state.confetti.length = 0;
+  state.winUntil = 0;
+  clearBanner();
+  saveGame();
+  updateHud(true);
+  setStatus('Fresh start. ' + formatNumber(START_BALANCE) + ' credits and a very long dog.', 'good');
+  showToast('Game reset.');
+  sound.click();
+}
+
+function requestReset() {
+  if (state.spinning) {
+    showToast('Let this spin finish first.');
+    return;
+  }
+  if (state.autoRemaining > 0) cancelAuto();
+  const now = Date.now();
+  if (now < resetArmedUntil) {
+    resetArmedUntil = 0;
+    resetGame();
+    return;
+  }
+  resetArmedUntil = now + 3200;
+  showToast('Tap reset again to clear balance, jackpot and stats.');
+  setStatus('Reset armed — tap reset again within 3 seconds.', 'alert');
+}
+
+dom.spin.addEventListener('click', () => spin(false));
+dom.betUp.addEventListener('click', () => changeBet(1));
+dom.betDown.addEventListener('click', () => changeBet(-1));
+dom.refill.addEventListener('click', refill);
+dom.sound.addEventListener('click', toggleSound);
+dom.auto.addEventListener('click', startAuto);
+dom.reset.addEventListener('click', requestReset);
+
+window.addEventListener('keydown', (event) => {
+  if (event.repeat) return;
+  const tag = (event.target && event.target.tagName ? event.target.tagName : '').toLowerCase();
+  const onInteractive = tag === 'button' || tag === 'input' || tag === 'textarea' || tag === 'select';
+
+  if (event.code === 'Space' || event.key === ' ') {
+    if (onInteractive) return;
+    event.preventDefault();
+    spin(false);
+  } else if (event.key === 'ArrowUp' || event.key === 'ArrowRight') {
+    event.preventDefault();
+    changeBet(1);
+  } else if (event.key === 'ArrowDown' || event.key === 'ArrowLeft') {
+    event.preventDefault();
+    changeBet(-1);
+  } else if (event.key === 'm' || event.key === 'M') {
+    toggleSound();
+  } else if ((event.key === 'a' || event.key === 'A') && !onInteractive) {
+    event.preventDefault();
+    startAuto();
+  }
+});
+
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    cancelAuto();
+  } else {
+    state.lastFrame = performance.now();
+  }
+});
+
+function initialise() {
+  fitCanvas();
+  sizeMascot();
+  loadGame();
+  updateSoundButton();
+  buildPaytable();
+  updateHud(false);
+  updateReels(performance.now(), 0);
+}
+
+/* -------------------------------- loop --------------------------------- */
+
+function renderFrame(now) {
+  const dt = clamp((now - state.lastFrame) / 1000, 0, 0.05);
+  state.lastFrame = now;
+
+  updateReels(now, dt);
+  updateConfetti(dt);
+
+  if (state.wins.length && now > state.winUntil) {
+    state.wins = [];
+    state.winCells.clear();
+  }
+
+  drawBoard(now);
+  drawWinOverlay(now);
+  drawConfetti();
+  drawMascot(now);
+
+  requestAnimationFrame(renderFrame);
+}
+
+initialise();
+state.lastFrame = performance.now();
+requestAnimationFrame(renderFrame);
+
+// Installable/offline support when served over http(s). Opening the file
+// directly still works; service workers just stay dormant.
+if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {
+      /* offline install is a bonus, never a blocker */
+    });
+  });
+}
+</script>
+</body>
+</html>
